@@ -13,7 +13,19 @@ let correct = 0;
 let incorrect;
 let indexOfLetters = [];
 
+async function GetWords() {
+  try {
+    const resp = await fetch ("http://127.0.0.1:3000/HangWords")
+    if (resp.ok){
+      const Word = await resp.json()
 
+    }
+    else {
+      throw "HTTP error:" + resp.status;
+    }
+  }
+  catch{((e) => console.log(e))}
+}
 const defineLetterArr = () =>{
 
   for (let i = 0; max > i; i++){
@@ -58,7 +70,13 @@ lettersLeftDis.textContent = underscore;
 
 if (correct == max){
   lettersLeftDis.textContent = "WELL DONE!"
+  correct = 0;
   newWord();
+
+}
+else if (incorrect == 5){
+
+  lettersLeftDis.textContent = "YOU RAN OUT OF TRIES!"
 
 }}
 
