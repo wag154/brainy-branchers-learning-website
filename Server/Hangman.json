@@ -1,8 +1,14 @@
 {
   "word1" :"Acquiesce",
+  "WordMeaning1" : "accept something reluctantly but without protest.",
   "word2" :"Colonel",
+  "WordMeaning2" : "a rank of officer in the army and in the US air force, above a lieutenant colonel and below a brigadier or brigadier general.",
   "word3" : "Mischievous",
+  "WordMeaning3" : "causing or showing a fondness for causing trouble in a playful way.",
   "word4" : "Onomatopoeia",
+  "WordMeaning4" : "the formation of a word from a sound associated with what is named (e.g. cuckoo, sizzle ).",
   "word5" : "Worcestershire",
-  "word6" : "Conscientious"
+  "WordMeaning5" : "a savory sauce of vinegar and soy sauce and spices",
+  "word6" : "Conscientious",
+  "WordMeaning6" : "wishing to do one's work or duty well and thoroughly."
 }

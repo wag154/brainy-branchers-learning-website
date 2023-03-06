@@ -1,45 +1,41 @@
 const HangmanDisplay = document.querySelector("#HangmanDis");
-const lettersLeftDis = document.querySelector("#LettersLefts h1")
+const lettersLeftDis = document.querySelector("#LettersLefts h1");
 const EnteredLetter = document.querySelector("#Interaction form");
+const commentDis = document.querySelector("#Describe");
+const LettersUsed = document.querySelector("#LettersUsed");
+
 const ExampleWords = ["hello","world","put","bin","wheel","fool","drool","pool"]
 
 let max = ExampleWords.length;
 let min = 1;
-let random = Math.floor(Math.random()*(max+min) - min)
-
+let random = Math.floor(Math.random()*(max-min) + min)
+let comment;
 let word = ExampleWords[random-1];
 max = word.length;
 let correct = 0;
 let incorrect;
 let indexOfLetters = [];
 
-// async function GetWords() {
-//   try {
-//     const resp = await fetch ("http://127.0.0.1:3000/HangWords")
-//     if (resp.ok){
-//       const Word = await resp.json()
-//       return Word
-    
-//     }
-//     else {
-//       throw "HTTP error:" + resp.status;
-//     }
-//   }
-//   catch{((e) => console.log(e))}
-// }
+
+const GetMax = (words) =>{
+  let nMin = 1;
+  let nMax = 6;
+  random = Math.floor(Math.random()* (max-min) + min)
+  word =words[`word${random}`]
+  comment = words[`WordMeaning${random}`]
+  max = word.length
+  defineLetterArr()
+  commentDis.textContent = comment;
+  DisplayHang(" ")
+}
+
 async function getJSON() {
 
   const response = await fetch("http://127.0.0.1:3000/HangWords");
   const data = await response.json();
-  const randMin = 1;
-  const randMax = 6;
-  random = Math.floor(Math.random()*(max-min) + min)
-  let index = data[`word${random}`];
+  GetMax(data)
 
-  console.log(index)
 }
-
-
 const defineLetterArr = () =>{
 
   for (let i = 0; max > i; i++){
@@ -51,7 +47,6 @@ const newWord = () =>{
   correct = 0;
   indexOfLetters = [];
   getJSON();
-
 
 }
 const findLetter = (letter) => {
@@ -107,9 +102,7 @@ const CheckLetter = (e) =>{
 
   if (numbers.includes(Letter)){
 
-    console.log("Not a string")
-
-    alert("Please Enter A Letter, Not A Number!")
+    alert("Please Enter A Letter, not anything else!")
   }
 
   else {
