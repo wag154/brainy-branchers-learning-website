@@ -1,5 +1,5 @@
 const HangmanDisplay = document.querySelector("#HangmanDis");
-const lettersLeftDis = document.querySelector("#LettersLeft")
+const lettersLeftDis = document.querySelector("#LettersLefts h1")
 const EnteredLetter = document.querySelector("#Interaction form");
 const ExampleWords = ["hello","world","put","bin","wheel","fool","drool","pool"]
 
@@ -14,18 +14,16 @@ const LettersLeft = () =>{
 
   let left = max - correct;
   for (let i = 0; left > i ; i++){
-    lettersLeftDis.textContent += "_"
+    lettersLeftDis.textContent += "_ "
   }
-
 }
-
-
 const DisplayHang = () =>{
-  lettersLeftDis
+  LettersLeft();
+
 }
 
 const getLetter = (letter) =>{
-  if (word.includes(letter)){
+  if (word.includes(letter) == true){
     correct ++;
   }
   else {

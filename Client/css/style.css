@@ -8,6 +8,11 @@
   background-color: yellow;
 }
 
+h1{
+  font-size: 25px;
+  color : yellow;
+}
+
 #Display-Hangman{
   height: 60vh;
   width : 90vw;
