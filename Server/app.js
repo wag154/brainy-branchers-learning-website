@@ -7,7 +7,13 @@ app.use(cors());
 
 
 app.use ("/HangWords", (req,res)=>{
-  
+
+let min = 1;
+let max = 6;
+let random = Math.floor(Math.random()*(max-min)+min)
+
+res.send(hangWords[`word${random}`])
+
 })
 
 module.exports = app;
