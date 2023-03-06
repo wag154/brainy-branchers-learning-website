@@ -11,14 +11,18 @@
 h1{
   font-size: 25px;
   color : yellow;
+  
 }
 
 #Display-Hangman{
+  display: flex;
   height: 60vh;
   width : 90vw;
   margin-left: 5vw;
   margin-top: 5vh;
   background-color : blue;
+  justify-content: flex-end;
+  flex-direction: column-reverse;
 }
 
 #Interaction form{

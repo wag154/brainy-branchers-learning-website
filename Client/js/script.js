@@ -6,35 +6,67 @@ const ExampleWords = ["hello","world","put","bin","wheel","fool","drool","pool"]
 let max = ExampleWords.length;
 let min = 1;
 let random = Math.floor(Math.random()*(max+min) - min)
-let word =ExampleWords[random-1];
 
+let word = ExampleWords[random-1];
+max = word.length;
+let correct = 0;
+
+let indexOfLetters = [];
+
+
+const defineLetterArr = () =>{
+
+  for (let i = 0; max > i; i++){
+    indexOfLetters.push(" _")
+  }
+}
+
+const newWord = () =>{
+  correct = 0;
+  indexOfLetters = [];
+
+}
 const findLetter = (letter) => {
+
 underscore = "";
 
   for (let i = 0; max > i ; i++){
+
    if (word[i] == letter){
-     underscore += ` ${letter}`;
+   
+    indexOfLetters[i] = letter;
+    correct ++
   }
-    else {
-    underscore += "_ "
-  }
-  return underscore
+}
+
+indexOfLetters.forEach((Letter) => {
+ 
+  underscore+=Letter;
+
+})
+
+return underscore;
+}
+
+const DisplayHang = (letter) =>{
+  const underscore = findLetter(letter);
+
+lettersLeftDis.textContent = underscore;
+
+if (correct == max){
+  lettersLeftDis.textContent = "WELL DONE!"
+  newWord();
+
 }}
 
 
-const DisplayHang = (letter) =>{
-console.log("Display")
-const underscore =  findLetter(letter)
-console.log(underscore)
-lettersLeftDis.textContent = underscore;
-
-}
-
 const CheckLetter = (e) =>{
+
   e.preventDefault();
+
   let Letter = e.target.UserInput.value;
 
-  numbers = "1234567890"
+  numbers = "1234567890";
 
   if (numbers.includes(Letter)){
 
@@ -42,10 +74,15 @@ const CheckLetter = (e) =>{
 
     alert("Please Enter A Letter, Not A Number!")
   }
+
   else {
-    DisplayHang(Letter)
+
+    DisplayHang(Letter);
+
   }
+
   e.target.UserInput.value = "";
 }
-
+defineLetterArr();
+DisplayHang(" ");
 EnteredLetter.addEventListener("submit",CheckLetter);
