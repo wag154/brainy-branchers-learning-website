@@ -15,7 +15,7 @@ underscore = "";
    if (word[i] == letter){
      underscore += ` ${letter}`;
   }
-  else {
+    else {
     underscore += "_ "
   }
   return underscore
