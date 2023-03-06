@@ -13,20 +13,33 @@ let correct = 0;
 let incorrect;
 let indexOfLetters = [];
 
-async function GetWords() {
-  try {
-    const resp = await fetch ("http://127.0.0.1:3000/HangWords")
-    if (resp.ok){
-      const Word = await resp.json()
-      return parse (Word)
-      
-    }
-    else {
-      throw "HTTP error:" + resp.status;
-    }
-  }
-  catch{((e) => console.log(e))}
+// async function GetWords() {
+//   try {
+//     const resp = await fetch ("http://127.0.0.1:3000/HangWords")
+//     if (resp.ok){
+//       const Word = await resp.json()
+//       return Word
+    
+//     }
+//     else {
+//       throw "HTTP error:" + resp.status;
+//     }
+//   }
+//   catch{((e) => console.log(e))}
+// }
+async function getJSON() {
+
+  const response = await fetch("http://127.0.0.1:3000/HangWords");
+  const data = await response.json();
+  const randMin = 1;
+  const randMax = 6;
+  random = Math.floor(Math.random()*(max-min) + min)
+  let index = data[`word${random}`];
+
+  console.log(index)
 }
+
+
 const defineLetterArr = () =>{
 
   for (let i = 0; max > i; i++){
@@ -37,7 +50,7 @@ const defineLetterArr = () =>{
 const newWord = () =>{
   correct = 0;
   indexOfLetters = [];
-  GetWords();
+  getJSON();
 
 
 }

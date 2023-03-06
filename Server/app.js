@@ -12,8 +12,8 @@ let min = 1;
 let max = 6;
 let random = Math.floor(Math.random()*(max-min)+min)
 
-res.send(hangWords[`word${random}`])
-
+//res.send(hangWords[`word${random}`])
+res.send(hangWords)
 })
 
 module.exports = app;
