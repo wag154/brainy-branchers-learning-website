@@ -14,7 +14,7 @@ let comment;
 let word = ExampleWords[random-1];
 max = word.length;
 let correct = 0;
-let incorrect;
+let incorrect =0;
 let indexOfLetters = [];
 listOfLetters = []
 
@@ -55,19 +55,20 @@ const newWord = () =>{
 const findLetter = (letter) => {
 
 underscore = "";
-
+  let isCorrect = false
   for (let i = 0; max > i ; i++){
 
    if (word[i] == letter){
-   
+   console.log("Yes")
     indexOfLetters[i] = letter;
-    correct ++
-  }
-  else {
-    incorrect ++;
+    correct ++;
+    isCorrect = true;
   }
 }
-
+if(isCorrect == false){
+  console.log(incorrect)
+  incorrect ++;
+}
 indexOfLetters.forEach((Letter) => {
  
   underscore+=Letter;
@@ -91,10 +92,9 @@ if (correct == max){
 else if (incorrect == 5){
 
   lettersLeftDis.textContent = "YOU RAN OUT OF TRIES!"
+  const timer = setTimeout(newWord,5000)
 
 }}
-
-
 const CheckLetter = (e) =>{
 
   e.preventDefault();
@@ -104,10 +104,8 @@ const CheckLetter = (e) =>{
   numbers = "1234567890";
 
   if (numbers.includes(Letter)){
-
     alert("Please Enter A Letter, not anything else!")
   }
-
   else {
     if (listOfLetters.includes(Letter)){
       alert("Letter already used!")
@@ -117,9 +115,7 @@ const CheckLetter = (e) =>{
       LettersUsed.textContent += Letter + " , ";
       DisplayHang(Letter);
     }
-
   }
-
   e.target.UserInput.value = "";
 }
 defineLetterArr();
