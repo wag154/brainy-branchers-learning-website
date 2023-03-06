@@ -18,19 +18,35 @@
 
 #Interaction{
   display: flex;
+  flex-direction: row-reverse;
   background-color : red;
   margin-top: 5vh;
   margin-left: 10vw;
   width : 80vw;
   height : 10vh;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 }
 
+#Interaction input:nth-child(2){
+  text-align: center;
+  width : 30%;
+  height: 20%;
+}
+
 #Interaction input:nth-child(1){
-  
+margin-left : 3vw;
+width : 30%;
+height :60%;
+margin-right: 2vw;
 }
 .list{
   display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
   list-style-type: none;
+}
+
+.list li {
+  font-size: 25px;
 }
