@@ -33,6 +33,12 @@ const showMemory = () => {
 
 const showForm = () => {
     inputMemory.style.display = "block";
+    inputMemory.addEventListener("submit", acquireUserInput);
+}
+
+const acquireUserInput = (userInput) => {
+    userInput.preventDefault();
+    //userInput.target.memoryTypeText.value = "";
 }
 
 showCountdown();
