@@ -18,7 +18,8 @@ async function GetWords() {
     const resp = await fetch ("http://127.0.0.1:3000/HangWords")
     if (resp.ok){
       const Word = await resp.json()
-
+      return parse (Word)
+      
     }
     else {
       throw "HTTP error:" + resp.status;
@@ -36,6 +37,8 @@ const defineLetterArr = () =>{
 const newWord = () =>{
   correct = 0;
   indexOfLetters = [];
+  GetWords();
+
 
 }
 const findLetter = (letter) => {
