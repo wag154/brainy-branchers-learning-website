@@ -17,14 +17,19 @@
 }
 
 #Interaction{
+  display: flex;
   background-color : red;
   margin-top: 5vh;
   margin-left: 10vw;
   width : 80vw;
   height : 10vh;
-
+justify-content: center;
+align-items: center;
 }
 
+#Interaction input:nth-child(1){
+  
+}
 .list{
   display: flex;
   list-style-type: none;
