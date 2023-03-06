@@ -16,6 +16,15 @@
   background-color : blue;
 }
 
+#Interaction{
+  background-color : red;
+  margin-top: 5vh;
+  margin-left: 10vw;
+  width : 80vw;
+  height : 10vh;
+
+}
+
 .list{
   display: flex;
   list-style-type: none;
