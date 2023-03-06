@@ -10,7 +10,7 @@ let random = Math.floor(Math.random()*(max+min) - min)
 let word = ExampleWords[random-1];
 max = word.length;
 let correct = 0;
-
+let incorrect;
 let indexOfLetters = [];
 
 
@@ -36,6 +36,9 @@ underscore = "";
    
     indexOfLetters[i] = letter;
     correct ++
+  }
+  else {
+    incorrect ++;
   }
 }
 
