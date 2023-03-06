@@ -5,33 +5,30 @@ const ExampleWords = ["hello","world","put","bin","wheel","fool","drool","pool"]
 
 let max = ExampleWords.length;
 let min = 1;
-let correct = 0;
-let incorrect = 0;
 let random = Math.floor(Math.random()*(max+min) - min)
 let word =ExampleWords[random-1];
 
-const LettersLeft = () =>{
+const findLetter = (letter) => {
+underscore = "";
 
-  let left = max - correct;
-  for (let i = 0; left > i ; i++){
-    lettersLeftDis.textContent += "_ "
-  }
-}
-const DisplayHang = () =>{
-  LettersLeft();
-
-}
-
-const getLetter = (letter) =>{
-  if (word.includes(letter) == true){
-    correct ++;
+  for (let i = 0; max > i ; i++){
+   if (word[i] == letter){
+     underscore += ` ${letter}`;
   }
   else {
-    incorrect ++
+    underscore += "_ "
   }
-  DisplayHang()
-}
+  return underscore
+}}
 
+
+const DisplayHang = (letter) =>{
+console.log("Display")
+const underscore =  findLetter(letter)
+console.log(underscore)
+lettersLeftDis.textContent = underscore;
+
+}
 
 const CheckLetter = (e) =>{
   e.preventDefault();
@@ -46,7 +43,7 @@ const CheckLetter = (e) =>{
     alert("Please Enter A Letter, Not A Number!")
   }
   else {
-    getLetter(Letter)
+    DisplayHang(Letter)
   }
   e.target.UserInput.value = "";
 }
