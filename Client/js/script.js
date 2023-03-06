@@ -1,4 +1,5 @@
-const HangmanDisplay = document.querySelector("#Display-Hangman div");
+const HangmanDisplay = document.querySelector("#HangmanDis");
+const lettersLeftDis = document.querySelector("#LettersLeft")
 const EnteredLetter = document.querySelector("#Interaction form");
 const ExampleWords = ["hello","world","put","bin","wheel","fool","drool","pool"]
 
@@ -9,8 +10,18 @@ let incorrect = 0;
 let random = Math.floor(Math.random()*(max+min) - min)
 let word =ExampleWords[random-1];
 
+const LettersLeft = () =>{
+
+  let left = max - correct;
+  for (let i = 0; left > i ; i++){
+    lettersLeftDis.textContent += "_"
+  }
+
+}
+
+
 const DisplayHang = () =>{
-  
+  lettersLeftDis
 }
 
 const getLetter = (letter) =>{
