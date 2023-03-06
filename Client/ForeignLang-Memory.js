@@ -1,11 +1,16 @@
 
 const countdownTag = document.getElementById("countdownTag");
-const memoryTag = document.getElementById("memoryTag")
+const memoryTag = document.getElementById("memoryTag");
 const inputMemory = document.querySelector("#inputMemory form");
+const examAnswer = document.getElementById("examAnswerSection");
 
 let countdown;
 memoryTag.style.display = "none";
 inputMemory.style.display = "none";
+examAnswer.style.display = "none";
+
+const pTagText = document.querySelector("#spaENGText p");
+const spaEngText = document.getElementById("spaENGText");
 
 const showCountdown = () => {
     let countdownTimer = 2;
@@ -37,24 +42,32 @@ const showForm = () => {
 }
 
 const acquireUserInput = (userInput) => {
-    console.log("called")
+    //console.log("called")
     userInput.preventDefault();
     inputMemory.style.display = "none";
-    fetchMemoryData()
+    fetchMemoryData(userInput);
     
     //userInput.target.memoryTypeText.value = "";
 }
 
-async function fetchMemoryData() {
+async function fetchMemoryData(userInput) {
+    console.log("asd")
     const response = await fetch("http://localhost:3000/memorydata");
     if (response.status == 200) {
         //console.log("response", response);
         //console.log(response.body, response.body.textContent);
         //console.log(response.json());
-        const data = await response.json()
+        const data = await response.json();
+        console.log("data", data);
+        showFeedback(data, userInput)
         //console.log(data, typeof data);
         //console.log(data[0].spanishText)
     }
+}
+
+const showFeedback = (respData, userInput) => {
+    spaEngText.innerHTML = respData[0].spanishText + " " + respData[0].englishText;
+    examAnswer.style.display = "block";
 }
 
 showCountdown();
