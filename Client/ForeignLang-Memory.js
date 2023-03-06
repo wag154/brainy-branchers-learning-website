@@ -1,26 +1,38 @@
 
-const countdown = document.getElementById("countdown");
+const countdownTag = document.getElementById("countdownTag");
+const memoryTag = document.getElementById("memoryTag")
 const inputMemory = document.querySelector("#inputMemory form");
 
+let countdown;
+memoryTag.style.display = "none";
 inputMemory.style.display = "none";
 
-for (let i = 4; i >= 0; i--) {
-    console.log(i);
-    setTimeout(() => {
-        countdown.textContent = i;
-    }, 1500);
+const showCountdown = () => {
+    let countdownTimer = 5;
+    countdown = setInterval (() => {
+        countdownTag.textContent = countdownTimer-1;
+        countdownTimer--;
+        if (countdownTimer == 0) {
+            countdownTag.style.display = "none";
+            showMemory();
+        }
+    }, 1000);
 }
 
-console.log(countdown);
-countdown.textContent = "bob";
-/*setTimeout(() => {
-    for (let i = 4; i >= 0; i--) {
-        console.log(i);
-        countdown.textContent = i;
-    }
-}, 1500);*/
-countdown.style.display = "none";
+const showMemory = () => {
+    memoryTag.style.display = "block";
+    let countdownTimer = 3;
+    countdown = setInterval(() => {
+        if (countdownTimer == 0) {
+            memoryTag.style.display = "none";
+            showForm();
+        }
+        countdownTimer--;
+    }, 1000);
+}
 
-setTimeout(() => {
+const showForm = () => {
     inputMemory.style.display = "block";
-}, 3000);
+}
+
+showCountdown();
