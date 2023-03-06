@@ -6,6 +6,7 @@ const LettersUsed = document.querySelector("#LettersUsed");
 
 const ExampleWords = ["hello","world","put","bin","wheel","fool","drool","pool"]
 
+LettersUsed.textContent = "Letters Used : "
 let max = ExampleWords.length;
 let min = 1;
 let random = Math.floor(Math.random()*(max-min) + min)
@@ -15,7 +16,7 @@ max = word.length;
 let correct = 0;
 let incorrect;
 let indexOfLetters = [];
-
+listOfLetters = []
 
 const GetMax = (words) =>{
   let nMin = 1;
@@ -46,6 +47,8 @@ const defineLetterArr = () =>{
 const newWord = () =>{
   correct = 0;
   indexOfLetters = [];
+  LettersUsed.textContent = "Letters Used : ";
+  listOfLetters = []
   getJSON();
 
 }
@@ -106,8 +109,14 @@ const CheckLetter = (e) =>{
   }
 
   else {
-
-    DisplayHang(Letter);
+    if (listOfLetters.includes(Letter)){
+      alert("Letter already used!")
+    }
+    else {
+      listOfLetters.push(Letter);
+      LettersUsed.textContent += Letter + " , ";
+      DisplayHang(Letter);
+    }
 
   }
 
