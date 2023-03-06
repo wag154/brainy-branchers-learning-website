@@ -16,7 +16,7 @@
   background-color : blue;
 }
 
-#Interaction{
+#Interaction form{
   display: flex;
   flex-direction: row-reverse;
   background-color : red;
