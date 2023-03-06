@@ -1,3 +1,22 @@
-#menu ol {
+*{
+  margin: 0;
+}
+
+#Menu {
+  width : 100vw;
+  height : 5vh;
+  background-color: yellow;
+}
+
+#Display-Hangman{
+  height: 80vh;
+  width : 90vw;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  background-color : blue;
+}
+
+.list{
+  display: flex;
   list-style-type: none;
 }
