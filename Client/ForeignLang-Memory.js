@@ -15,6 +15,7 @@ const engText = document.getElementById("engText");
 const userText = document.getElementById("userText");
 const correctList = document.getElementById("correctList");
 const incorrectList = document.getElementById("incorrectList");
+const pointTag = document.getElementById("pointTag");
 
 const showCountdown = () => {
     let countdownTimer = 2;
@@ -129,28 +130,102 @@ const showFeedback = (respData, userInput) => {
     //console.log("span", span.getAttribute("class"));
     //spaEngText.appendChild(span);
 
-    let = engKeywordArr = []
+    let engKeywordArr = processEnglishKeywords(engWordArr);
+    /*let engKeywordArr = []
     for (let i = 0; i < engWordArr.length; i++) {
         if (respData[0].englishKeywords.includes(i+1)) {
             engKeywordArr.push(engWordArr[i]);
         }
-    }
-    //console.log("engkeywordarr", engKeywordArr)
+    }*/
 
-    //let addCorrectKeyword = document.createElement("li");
-
+    //process user input
     let userInputValue = userInput.target.memoryTypeText.value;
     let userInputValueArr = userInputValue.split(" ");
-    for (let i = 0; i < userInputValueArr.length; i++) {
+
+    let points = 0;
+    
+    points = noteRightWrongAnswers(engKeywordArr, userInputValueArr, true, 3);
+    points = noteRightWrongAnswers(userInputValueArr, engWordArr, false, -0.5);
+    points = noteRightWrongAnswers(engWordArr, userInputValueArr, false, -1);
+
+ /*   for (let i = 0; i < userInputValueArr.length; i++) {
         let addCorrectKeyword = document.createElement("li");
         if (engKeywordArr.includes(userInputValueArr[i])) {
             addCorrectKeyword.textContent = userInputValueArr[i];
             correctList.appendChild(addCorrectKeyword);
             console.log("log", userInputValueArr[i])
+            points += 3;
         }
     }
+    console.log("points:", points);
 
-    userText.innerHTML = userInput.target.memoryTypeText.value;
+    for (let i = 0; i < engWordArr.length; i++) {
+        let addIncorrectKeyword = document.createElement("li");
+        if (!userInputValueArr.includes(engWordArr[i])) {
+            addIncorrectKeyword.textContent = engWordArr[i];
+            incorrectList.appendChild(addIncorrectKeyword);
+            console.log("log2", engWordArr[i])
+            points -= 0.5;
+        }
+    }
+    console.log("points:", points);
+
+    for (let i = 0; i < userInputValueArr.length; i++) {
+        let addIncorrectKeyword = document.createElement("li");
+        if (!engWordArr.includes(userInputValueArr[i])) {
+            addIncorrectKeyword.textContent = userInputValueArr[i];
+            incorrectList.appendChild(addIncorrectKeyword);
+            console.log("log3", userInputValueArr[i])
+            points -= 1;
+        }
+    }
+    console.log("points:", points);*/
+
+    alert(`3 points for each correct keyword. 
+    -0.5 points for each incorrect minor.
+    -1 points for each word not included within translation.`)
+
+    displayPointsAndFeedback(points, userInputValue)
+
+    /*let pointCalculation = document.createElement("h3");
+    pointCalculation.textContent = `Points: ${points}`
+    pointTag.appendChild(pointCalculation);
+
+    userText.innerHTML = userInputValue;
+    
+    examAnswer.style.display = "block";*/
+}
+
+const processEnglishKeywords = (engWordArr) => {
+    let engKeywordArray = [];
+    for (let i = 0; i < engWordArr.length; i++) {
+        if (respData[0].englishKeywords.includes(i+1)) {
+            engKeywordArray.push(engWordArr[i]);
+        }
+    }
+    return engKeywordArray;
+}
+
+const noteRightWrongAnswers = (inclusiveArr, comparedArr, boolComparison, pointAdd) => {
+    for (let i = 0; i < comparedArr.length; i++) {
+        let elementCreation = document.createElement("li");
+        if (inclusiveArr.includes(comparedArr[i]) == boolComparison) {
+            elementCreation.textContent = comparedArr[i];
+            correctList.appendChild(elementCreation);
+            //console.log("log", comparedArr[i])
+            points += pointAdd;
+        }
+    }
+    //console.log("points:", points);
+    return points;
+}
+
+const displayPointsAndFeedback = (pointsNumber, userInputValue) => {
+    let pointCalculation = document.createElement("h3");
+    pointCalculation.textContent = `Points: ${pointsNumber}`
+    pointTag.appendChild(pointCalculation);
+
+    userText.innerHTML = userInputValue;
     
     examAnswer.style.display = "block";
 }
