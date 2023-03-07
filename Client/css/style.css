@@ -115,3 +115,15 @@ input {
   background-color: #2F3641;
   color : white;
 }
+
+button{
+  text-align: center;
+  opacity: 0.9;
+  background-color: #2F3641;
+  color : white;
+}
+button:hover{
+  transition: 1s;
+  background-color: black;
+  color : white;
+}
