@@ -19,6 +19,19 @@ const incorrectList = document.getElementById("incorrectList");
 const pointTag = document.getElementById("pointTag");
 
 let randomData = 0;
+let dataHolder;
+
+async function fetchMemoryData() {
+    const response = await fetch("http://localhost:3000/memorydata");
+    if (response.status == 200) {
+        let data = await response.json();
+        if (randomData != true) {
+            data = generateRandomData(data)
+        }
+        dataHolder = data;
+        showCountdown();
+    }
+}
 
 const showCountdown = () => {
     let countdownTimer = 2;
@@ -58,20 +71,20 @@ const acquireUserInput = (userInput) => {
         showForm()
     } else {
         inputMemory.style.display = "none";
-        fetchMemoryData(userInput)
+        showFeedback(userInput)
     }
 }
 
-async function fetchMemoryData(userInput) {
+/*async function fetchMemoryData(userInput) {
     const response = await fetch("http://localhost:3000/memorydata");
     if (response.status == 200) {
         let data = await response.json();
         if (randomData != true) {
-            data = generateRandomData(data)
+            data = generateRandomData(data);
         }
-        showFeedback(data, userInput)
+        showFeedback(data, userInput);
     }
-}
+}*/
 
 const generateRandomData = (data) => {
     if (randomData == true) {
@@ -82,7 +95,8 @@ const generateRandomData = (data) => {
     }
 }
 
-const showFeedback = (respData, userInput) => {  
+const showFeedback = (userInput) => {  
+    let respData = dataHolder;
     let span = document.createElement("SPAN");
     span.setAttribute("class", "correctText");
 
@@ -157,4 +171,5 @@ const displayPointsAndFeedback = (pointsNumber, userInputValue) => {
     examAnswer.style.display = "block";
 }
 
-showCountdown();
+//showCountdown();
+fetchMemoryData();
