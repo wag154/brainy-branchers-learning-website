@@ -1,5 +1,6 @@
 
-const countdownTag = document.getElementById("countdownTag");
+const countdownTagHeader = document.getElementById("countdownTagHeader");
+const countdownTagNumber = document.getElementById("countdownTagNumber");
 const memoryTag = document.getElementById("memoryTag");
 const inputMemory = document.querySelector("#inputMemory form");
 const examAnswer = document.getElementById("examAnswerSection");
@@ -17,13 +18,16 @@ const correctList = document.getElementById("correctList");
 const incorrectList = document.getElementById("incorrectList");
 const pointTag = document.getElementById("pointTag");
 
+let randomData = 0;
+
 const showCountdown = () => {
     let countdownTimer = 2;
     countdown = setInterval (() => {
-        countdownTag.textContent = countdownTimer-1;
+        countdownTagNumber.textContent = countdownTimer-1;
         countdownTimer--;
         if (countdownTimer == 0) {
-            countdownTag.style.display = "none";
+            countdownTagHeader.style.display = "none";
+            countdownTagNumber.style.display = "none";
             showMemory();
         }
     }, 1000);
@@ -48,16 +52,33 @@ const showForm = () => {
 
 const acquireUserInput = (userInput) => {
     userInput.preventDefault();
-    inputMemory.style.display = "none";
-    fetchMemoryData(userInput);
+    if (!userInput.target.memoryTypeText.value || userInput.target.memoryTypeText.value == " ") {
+        alert("Cannot accept blank values");
+        userInput.target.memoryTypeText.value = "";
+        showForm()
+    } else {
+        inputMemory.style.display = "none";
+        fetchMemoryData(userInput)
+    }
 }
 
 async function fetchMemoryData(userInput) {
     const response = await fetch("http://localhost:3000/memorydata");
     if (response.status == 200) {
-        const data = await response.json();
-        console.log("data", data);
+        let data = await response.json();
+        if (randomData != true) {
+            data = generateRandomData(data)
+        }
         showFeedback(data, userInput)
+    }
+}
+
+const generateRandomData = (data) => {
+    if (randomData == true) {
+        let random = Math.floor(Math.random()*5);
+        return data[random];
+    } else {
+        return data[randomData];
     }
 }
 
@@ -65,18 +86,14 @@ const showFeedback = (respData, userInput) => {
     let span = document.createElement("SPAN");
     span.setAttribute("class", "correctText");
 
-    let pAppend = document.createElement("P");
-
-    let spaWordArr = respData[0].spanishText.split(" ");
-    let engWordArr = respData[0].englishText.split(" ");
-    console.log("spaarr", spaWordArr)
-    console.log("spaarr", engWordArr)
+    let spaWordArr = respData.spanishText.split(" ");
+    let engWordArr = respData.englishText.split(" ");
  
-    highlightKeywordsInGreen(spaWordArr, respData[0].spanishKeywords, spaText);
-    highlightKeywordsInGreen(engWordArr, respData[0].englishKeywords, engText);
+    highlightKeywordsInGreen(spaWordArr, respData.spanishKeywords, spaText);
+    highlightKeywordsInGreen(engWordArr, respData.englishKeywords, engText);
 
     let engKeywordArr = [];
-    engKeywordArr = processEnglishKeywords(engWordArr, respData[0].englishKeywords);
+    engKeywordArr = processEnglishKeywords(engWordArr, respData.englishKeywords);
   
     //process user input
     let userInputValue = userInput.target.memoryTypeText.value;
@@ -88,7 +105,7 @@ const showFeedback = (respData, userInput) => {
     points += noteRightWrongAnswers(userInputValueArr, engWordArr, false, incorrectList, -0.5);
     points += noteRightWrongAnswers(engWordArr, userInputValueArr, false, incorrectList, -1);
 
-    alert(`3 points for each correct keyword. 
+    alert(`+3 points for each correct keyword. 
     -0.5 points for each incorrect minor.
     -1 points for each word not included within translation.`)
 
