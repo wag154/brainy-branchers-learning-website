@@ -20,8 +20,7 @@ const addObject = (username,password,name) =>{
 }
 app.get("/UserInfo/:Username&:Password&:Name", (req,res)=>{
   userObject.newUser = {};
-  const NewObj = addObject(req.params.Username,req.params.Password,req.params.Name)
-
+  const NewObj = addObject(req.params.Username,req.params.Password,req.params.Name);
   console.log(NewObj)
 })
 
