@@ -21,8 +21,7 @@ async function fetchJsonResponse() {
         const resp = await fetch(`http://127.0.0.1:3000/Questions/${subject}`);
         if (resp.ok) {
             data = await response.json();
-            console.log(data);
-            answerOptions.addEventListener("click", checkAnswer);
+
         }
         else {
             throw "HTTP ERROR:" + resp.status;
@@ -31,9 +30,10 @@ async function fetchJsonResponse() {
     catch {((e) => console.log(e))}
     
 }
-
 const checkAnswer = (UserInput) => {
-    console.log(UserInput)
-}
 
+}
+answerOptions.addEventListener("click", checkAnswer);
+
+// main
 fetchJsonResponse();
