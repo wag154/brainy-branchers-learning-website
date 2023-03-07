@@ -7,6 +7,16 @@ app.use(cors());
 
 var userObject = {};
 
+const addObject = (username,password) =>{
+  userObject = {
+     UserInfo : {}
+  };
+  userObject["UserInfo"]["Username"] = username;
+  userObject["UserInfo"]["Password"] = password;
+
+  return userObject;
+
+}
 app.post("/UserInfo/:Username&:Password", (req,res)=>{
   userObject.newUser = {};
 
@@ -16,4 +26,4 @@ app.post("/UserInfo/:Username&:Password", (req,res)=>{
   loginInfo.push(userObject.newUser)
 })
 
-module.exports = app;
+module.exports = {app,addObject};

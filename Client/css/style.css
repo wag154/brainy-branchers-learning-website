@@ -2,6 +2,8 @@
   margin: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Kanit:wght@300;400&display=swap');
+
 #Menu {
   width : 100vw;
   height : 5vh;
@@ -58,4 +60,58 @@ margin-right: 2vw;
 
 .list li {
   font-size: 25px;
+}
+#HeadToolBar {
+  width : 100vw;
+  height :10vh;
+  background-color:red;
+}
+#LoginMain {
+  display: flex;
+  background-color: yellow;
+  width: 100vw;
+  height : 85vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#LoginDis{
+  border-radius: 50px;
+  width: 40vw;
+  height : 50vh;
+  background-color: blue;
+}
+#LoginDis form:nth-child(1){
+  height:100%;
+  width:100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#submitBtn {
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+}
+#submitBtn:hover{
+  transition: 1s;
+  background-color: black;
+  color : white;
+}
+label{
+ font-family: 'Dosis', sans-serif;
+ font-family: 'Kanit', sans-serif;
+}
+input {
+  margin: 5px;
+  border-radius: 50px;
+}
+
+.Input {
+  text-align: center;
+  opacity: 0.9;
+  background-color: #2F3641;
+  color : white;
 }

@@ -4,7 +4,7 @@ const LoginDis = document.querySelector("#LoginDis form");
 async function SignUp(username,password){
 
   try {
-    const resp = await fetch (`http://127.0.0.1:3000/${username}&${password}`)
+    const resp = await fetch (`http://127.0.0.1:3000/UserInfo/${username}&${password}`)
     if (resp.ok){
       data = await resp.json()
     }
@@ -28,9 +28,7 @@ const getUserInfo = (e) =>{
     alert("Please Enter A password")
   }
   else {
-
-    
-
+    SignUp(userName,passWord)
   }
   e.target.userName.value = "";
   e.target.Password.value = "";
