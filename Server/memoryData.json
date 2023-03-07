@@ -2,7 +2,8 @@
     {
       "spanishText": "La política es dar multas a los infractores.",
       "englishText": "The policy is to give tickets to offenders.",
-      "keywords": [2, 5, 8]
+      "spanishKeywords": [2, 5, 8],
+      "englishKeywords": [2, 6, 8]
     },
     {
         "spanishText": "Por favor, ¿me podría dar un poquito de perejil?",

@@ -5,5 +5,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const memoryData = require("./memoryData.json");
+
+app.get("/memorydata", (req, res) => {
+    res.send(memoryData)
+})
 
 module.exports = app;

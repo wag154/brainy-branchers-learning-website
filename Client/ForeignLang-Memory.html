@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foreign Languages - Memory Game</title>
     <script src="./ForeignLang-Memory.js" defer></script>
-    <link rel="stylesheet" href="ForeignLang-Memory.css">
+    <link rel="stylesheet" href="./ForeignLang-Memory.css">
 </head>
 <body>
     <h1>Test Your Memory in Foreign Languages</h1>
@@ -21,6 +21,16 @@
             <input type="text" id="memoryTypeText", placeholder="Your Sentence">
             <input type="submit" value="submit">
         </form>
+    </section>
+    <section id="examAnswerSection">
+        <h3>What was in Spanish</h3>
+        <p id="spaText"></p>
+        <h3>English Translation</h3>
+        <p id="engText"></p>
+        <h3>What you wrote</h3>
+        <p id="userText"></p>
+        <ol id="correctList"></ol>
+        <ol id="incorrectList"></ol>
     </section>
 </body>
 </html>
