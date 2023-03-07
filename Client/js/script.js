@@ -91,7 +91,7 @@ if (correct == max){
 }
 else if (incorrect == 5){
 
-  lettersLeftDis.textContent = "YOU RAN OUT OF TRIES!"
+  lettersLeftDis.textContent = `YOU RAN OUT OF TRIES! The word was :${word}`
   const timer = setTimeout(newWord,5000)
 
 }}
