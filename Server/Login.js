@@ -7,23 +7,26 @@ app.use(cors());
 
 var userObject = {};
 
-const addObject = (username,password) =>{
+const addObject = (username,password,name) =>{
   userObject = {
      UserInfo : {}
   };
   userObject["UserInfo"]["Username"] = username;
   userObject["UserInfo"]["Password"] = password;
+  userObject["UserInfo"]["Name"] = name;
 
   return userObject;
 
 }
-app.post("/UserInfo/:Username&:Password", (req,res)=>{
+app.get("/UserInfo/:Username&:Password&:Name", (req,res)=>{
   userObject.newUser = {};
+  const NewObj = addObject(req.params.Username,req.params.Password,req.params.Name)
 
-  userObject.newUser["Username"] = req.params.Username;
-  userObject.newUser["Password"] =req.params.Password;
-  
-  loginInfo.push(userObject.newUser)
+  // userObject.newUser["Username"] = req.params.Username;
+  // userObject.newUser["Password"] =req.params.Password;
+  // userObject.newUser[""]
+
+  console.log(NewObj)
 })
 
-module.exports = {app,addObject};
+module.exports = app;
