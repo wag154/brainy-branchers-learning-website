@@ -22,10 +22,6 @@ app.get("/UserInfo/:Username&:Password&:Name", (req,res)=>{
   userObject.newUser = {};
   const NewObj = addObject(req.params.Username,req.params.Password,req.params.Name)
 
-  // userObject.newUser["Username"] = req.params.Username;
-  // userObject.newUser["Password"] =req.params.Password;
-  // userObject.newUser[""]
-
   console.log(NewObj)
 })
 
