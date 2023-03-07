@@ -18,15 +18,43 @@ if (random == 0) {
 
 async function fetchJsonResponse() {
     const response = await fetch(`http://127.0.0.1:3000/Questions/${subject}`);
-    if (response.status == 200) {
+    if (response.ok) {
         data = await response.json();
         console.log(data);
-        answerOptions.addEventListener("click", checkAnswer);
+        setupQuestionAnswers(data);
+     }
+}
+
+const setupQuestionAnswers = (data) => {
+    printQuestionAnswer(data.Question, QuestionDis);
+    let randomNumber;
+    let randomArray = [ ["option1", "option2", "option3"], 
+    [option1Dis, option2Dis, option3Dis], []];
+    while (randomArray[2].length != 3) {
+        randomNumber = Math.floor(Math.random()*3);
+        if (!randomArray[2].includes(randomNumber)) {
+            randomArray[2].push(randomNumber);
+            printQuestionAnswer(data[randomArray[0][randomNumber]], randomArray[1][randomArray[2].length-1]);
+        }
     }
 }
 
-const checkAnswer = (UserInput) => {
-    console.log(UserInput)
+const printQuestionAnswer = (dataKey, sourceAppend) => {
+    let append = document.createElement("h1");
+    append.textContent = dataKey;
+    sourceAppend.appendChild(append);
+}
+
+const checkAnswer = (userInput) => {
+    let optionArr = [option1Dis, option2Dis, option3Dis];
+    let append = document.createElement("h1");
+    if (userInput.target.textContent == data.option1) {
+        append.textContent = "You have chosen the correct answer";
+    } else {
+        append.textContent = "Wrong answer";
+    }
+    answerOptions.appendChild(append);
 }
 
 fetchJsonResponse();
+answerOptions.addEventListener("click", checkAnswer);
