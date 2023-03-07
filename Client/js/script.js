@@ -3,12 +3,12 @@ const lettersLeftDis = document.querySelector("#LettersLefts h1");
 const EnteredLetter = document.querySelector("#Interaction form");
 const commentDis = document.querySelector("#Describe");
 const LettersUsed = document.querySelector("#LettersUsed");
-const LoginDis = document.querySelector("LoginDis form")
+const LoginDis = document.querySelector("#LoginDis form")
 
 const ExampleWords = ["hello","world","put","bin","wheel","fool","drool","pool"]
 
 LettersUsed.textContent = "Letters Used : "
-let max = ExampleWords.length;
+let max = ExampleWords.length;x
 let min = 1;
 let random = Math.floor(Math.random()*(max-min) + min)
 let comment;
@@ -122,41 +122,3 @@ const CheckLetter = (e) =>{
 defineLetterArr();
 DisplayHang(" ");
 EnteredLetter.addEventListener("submit",CheckLetter);
-
-async function SignUp(username,password){
-
-  try {
-    const resp = await fetch (`http://127.0.0.1:3000/${username}&${password}`)
-    if (resp.ok){
-      data = await resp.json()
-    }
-    else {
-      throw "HTTP ERROR CODE :" + resp.status;
-      
-    }
-  }
-catch {((e) => console.log(e))}
-}
-
-const getUserInfo = (e) =>{
-  e.preventDefault;
-  const userName = e.target.Username.value;
-  const passWord = e.target.Password.value;
-
-  if (userName.split(" ") == "" ){
-    alert ("Please Enter A Username")
-  }
-  else if (passWord.split(" ") == ""){
-    alert("Please Enter A password")
-  }
-  else {
-
-    e.target.userName.value = "";
-    e.target.Password.value = "";
-  }
-} 
-
-
-
-
-LoginDis.addEventListener("submit",getUserInfo)
