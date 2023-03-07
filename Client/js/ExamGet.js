@@ -37,6 +37,7 @@ const setupQuestionAnswers = (data) => {
             printQuestionAnswer(data[randomArray[0][randomNumber]], randomArray[1][randomArray[2].length-1]);
         }
     }
+    
 }
 
 const printQuestionAnswer = (dataKey, sourceAppend) => {
@@ -55,6 +56,8 @@ const checkAnswer = (userInput) => {
     }
     answerOptions.appendChild(append);
 }
+answerOptions.addEventListener("click", checkAnswer);
 
+// main
 fetchJsonResponse();
 answerOptions.addEventListener("click", checkAnswer);
