@@ -4,7 +4,9 @@ const option1Dis = document.querySelector("#option1");
 const option2Dis = document.querySelector("#option2");
 const option3Dis = document.querySelector("#option3");
 
-let random = Math.floor(Math.random()*2);
+let data;
+
+let random = Math.floor(Math.random()*3);
 let subject;
 if (random == 0) {
     subject = "English-lang";
@@ -15,9 +17,9 @@ if (random == 0) {
 }
 
 async function fetchJsonResponse() {
-    const Response = await fetch(`http://127.0.0.1:3000/Questions/${subject}`);
+    const response = await fetch(`http://127.0.0.1:3000/Questions/${subject}`);
     if (response.status == 200) {
-        const data = await response.json();
+        data = await response.json();
         console.log(data);
         answerOptions.addEventListener("click", checkAnswer);
     }
@@ -27,4 +29,4 @@ const checkAnswer = (UserInput) => {
     console.log(UserInput)
 }
 
-fetchJsonResponse
+fetchJsonResponse();
