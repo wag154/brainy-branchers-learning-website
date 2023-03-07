@@ -29,8 +29,15 @@ async function fetchMemoryData() {
             data = generateRandomData(data)
         }
         dataHolder = data;
+        getJsonText (data);
         showCountdown();
     }
+}
+
+const getJsonText = (data) => {
+    let append = document.createElement("h3");
+    append.textContent = data.spanishText;
+    memoryTag.appendChild(append);
 }
 
 const showCountdown = () => {
