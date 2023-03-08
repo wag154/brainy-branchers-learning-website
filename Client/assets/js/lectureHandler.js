@@ -4,9 +4,6 @@ class Carousel {
         this.perPage = 1;
         this.data = [];
         this.getData();
-        //if (this.data) {
-        // this.displayData();
-        //}
         document
             .querySelector(".right-arrow")
             .addEventListener("click", (event) => {
@@ -25,9 +22,7 @@ class Carousel {
         return totalPages;
     }
     handleLeftClick() {
-        if (this.currentPage === 1) {
-            return;
-        }
+        if (this.currentPage === 1) return;
         this.currentPage--;
         this.displayData();
     }
@@ -68,6 +63,10 @@ class Carousel {
                         return startGameNameThatSong();
                     case "tangramMemoryGame":
                         return startGameTangram();
+                    case "hangManGame":
+                        return startHangManGame();
+                    case "memoryGame":
+                        return startMemoryGame();
                     default:
                         return;
                 }
@@ -105,6 +104,12 @@ class Carousel {
             {
                 id: "6",
                 data: "Data 6",
+                gameName: "hangManGame",
+            },
+            {
+                id: "7",
+                data: "Data 7",
+                gameName: "memoryGame",
             },
         ];
         return new Promise((resolve, reject) => {
