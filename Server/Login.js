@@ -48,13 +48,15 @@ app.use("/UserInfo/:Username&:Password&:Name", (req,res)=>{
 
   const NewObj = addObject(req.params.Username,req.params.Password,req.params.Name)
   req.body = NewObj;
+  console.log(loginInfo)
 
-  jsonFile.writeFileSync('LoginInfo.json',NewObj,{flag :"a",spaces:2})
+  //jsonFile.writeFileSync('LoginInfo.json',NewObj,{flag :"a",spaces:2})
   res.send("Successful")
 })
 
-app.post ((req,res)=>{
-
+app.post ("/UserInfo/",(req,res)=>{
+  loginInfo.push(req.body)
+  console.log("Yes")
 })
 
 module.exports = app;
