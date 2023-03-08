@@ -6,7 +6,7 @@
 }
 body {
     background-image: url("https://jooinn.com/images/school-building-5.jpg");
-    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 /* Navbar links */
