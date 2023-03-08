@@ -1,19 +1,35 @@
 <html>
     <head>
-        <title>Name That Tune</title>
-        <script src="assets/js/nameThatSong.js"></script>
-    </head>
-    <body>
-        <h1>Name That Tune</h1>
-        <p>Can you guess the name of this song?</p>
-        
-        <audio
-            id="musicObject"
-            src="http://www.hyperion-records.co.uk/audiotest/18%20MacCunn%20The%20Lay%20of%20the%20Last%20Minstrel%20-%20Part%202%20Final%20chorus%20O%20Caledonia!%20stern%20and%20wild.MP3"
-            
-        ></audio>
-        <button id="playPauseBtn" onclick="playPauseAudio()">Play</button>
-        <button id="startOverBtn" onclick="startOverAudio()">Start Over</button>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel = "stylesheet" href = "/Client/assets/css/style.css">
+            <title>Name That Tune</title>
+            <script src="assets/js/nameThatSong.js"defer></script>
+        </head>
+        <body>
+            <section id = "header">
+                
+                <h1>Name That Tune!</h1>
+                
+                <p>Can <strong>YOU</strong> guess the name of this <strong>SONG</strong>?</p>
+                
+            </section>
+            <section id = "DisplayBody">
+                <section id = "DisplayMusic">
+
+                    <audio id="musicObject" src="http://www.hyperion-records.co.uk/audiotest/18%20MacCunn%20The%20Lay%20of%20the%20Last%20Minstrel%20-%20Part%202%20Final%20chorus%20O%20Caledonia!%20stern%20and%20wild.MP3"></audio>
+                    <div class = "resultContainer">
+                        <p id="result" style = "color: white;">Result appear here!</p>
+                    </div>
+
+                    <input type="text" id="answer" placeholder="Enter your answer" />
+                    
+                    <button class = "btn" id="startOverBtn" onclick="startOverAudio()">Start Over</button>
+                    <button class = "btn" id="playPauseBtn" onclick="playPauseAudio()">Play</button>
+                    <button class = "btn" id = "CheckBtn" onclick="checkAnswer()">Check Answer</button>
+    </section>
+</section>
         <script>
             let myAudio = document.getElementById("musicObject");
             let playPauseBtn = document.getElementById("playPauseBtn");
@@ -34,10 +50,8 @@
                 myAudio.play();
                 playPauseBtn.textContent = "Pause";
             }
-        </script>
-        <input type="text" id="answer" placeholder="Enter your answer" />
-        <button onclick="checkAnswer()">Check Answer</button>
-        <p id="result"></p>
+            </script>
+
         <!-- <form>
             <label for="input">Enter a function:</label>
             <input type="text" id="input" name="input" />
