@@ -1,3 +1,6 @@
+*{
+    margin: 0;
+}
 .navbar {
     position: relative;
     overflow: hidden;
@@ -7,6 +10,7 @@
 body {
     background-image: url("https://jooinn.com/images/school-building-5.jpg");
     background-position: center;
+    background-size: 100vh;
     background-repeat: no-repeat;
 }
 /* Navbar links */
@@ -25,6 +29,7 @@ body {
     position: absolute;
     margin-left: -50px; /* added */
     display: inline-block;
+    display: none;
 }
 #student-picture {
     border-radius: 50%;
@@ -121,14 +126,7 @@ body {
 }
 
 .schedule {
-    display: grid;
-    background-color: white;
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: repeat(14, 20px);
-    gap: 10px;
-    border: 2px solid black;
-    max-width: 500px;
-    max-height: 500px;
+    display:none;
 }
 
 .timeline {
@@ -174,6 +172,7 @@ body {
 }
 
 #due-box {
+    display:none;
     width: 500px;
     height: 150px;
     overflow-y: scroll;
@@ -182,4 +181,10 @@ body {
 }
 #due-box{
     padding-bottom: 10px;
+}
+#burgerMenu{
+    display: none;
+    position: absolute;
+    left : 20px;
+    top : 15px;
 }
