@@ -74,7 +74,6 @@ app.get("/Questions/:subject", (req, res) => {
     res.send(getExamQuestions[req.params.subject]);
 });
 
-const memoryData = require("./memoryData.json");
 
 app.get("/memorydata", (req, res) => {
     res.send(memoryData)
