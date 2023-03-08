@@ -18,7 +18,7 @@ const addObject = (username,password,name) =>{
   const max = 1000000000000000000000;
   const random = Math.floor(Math.random()*(max-min)+min)
  // userObject[`User`] = {}
-  userObject["ID"] = random 
+  userObject["ID"] = random;
   userObject["Username"] = username;
   userObject["Password"] = password;
   userObject["Name"] = name;
@@ -30,14 +30,27 @@ const addObject = (username,password,name) =>{
 const findUsername = (username) =>{
   return loginInfo.find((Username) => Username.User.Name ==username)
 }
+app.use ("/Login/:Username&:Password",(req,res) =>{
+
+  const arr = loginInfo.map((User) => {
+
+    if (User.Username == req.params.Username && User.Password == req.params.Password){
+      res.send(true)
+    }
+
+  })
+
+})
+
 app.use("/UserInfo/:Username&:Password&:Name", (req,res)=>{
 
-  userObject.newUser = {};
+  userObject = {};
 
   const NewObj = addObject(req.params.Username,req.params.Password,req.params.Name)
   req.body = NewObj;
 
-  jsonFile.writeFileSync('LoginInfo.json',NewObj,{flag :"a",spaces:2,finalEOL : false})
+  jsonFile.writeFileSync('LoginInfo.json',NewObj,{flag :"a",spaces:2})
+  res.send("Successful")
 })
 
 app.post ((req,res)=>{

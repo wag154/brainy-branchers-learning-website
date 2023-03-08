@@ -1,28 +1,16 @@
-{
-  "User2": {
+[
+  {
+    
+    "ID": 441975173746291100000,
     "Username": "ExampleUsernm",
     "Password": "ExamplePsswrd",
     "Name": "ExmpNme"
   },
-
-
-  "User3": {
-    "Username": "ExampleUsernm",
-    "Password": "ExamplePsswrd",
-    "Name": "ExmpNme"
-  },
-
-  "User4": {
+  {
+    
+    "ID": 976138903976469200000,
     "Username": "ExampleUsernm",
     "Password": "ExamplePsswrd",
     "Name": "ExmpNme"
   }
-}{
-  "newUser": {},
-  "User": {
-    "ID": 640096045182206500000,
-    "Username": "ExampleUsernm",
-    "Password": "ExamplePsswrd",
-    "Name": "ExmpNme"
-  }
-}
+]

@@ -7,7 +7,8 @@ const signUpOption = true;
 
 const check =(data) =>{
   if(data.includes(true)) {
-
+     HeadDis.textContent = "LOGIN SUCCESSFUL!"
+    // add link
   }
 }
 async function Login (userName,password){
