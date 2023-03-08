@@ -1,3 +1,28 @@
 {
-  
+  "User2": {
+    "Username": "ExampleUsernm",
+    "Password": "ExamplePsswrd",
+    "Name": "ExmpNme"
+  },
+
+
+  "User3": {
+    "Username": "ExampleUsernm",
+    "Password": "ExamplePsswrd",
+    "Name": "ExmpNme"
+  },
+
+  "User4": {
+    "Username": "ExampleUsernm",
+    "Password": "ExamplePsswrd",
+    "Name": "ExmpNme"
+  }
+}{
+  "newUser": {},
+  "User": {
+    "ID": 640096045182206500000,
+    "Username": "ExampleUsernm",
+    "Password": "ExamplePsswrd",
+    "Name": "ExmpNme"
+  }
 }
