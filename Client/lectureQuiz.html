@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script>
+            // Function to create input fields dynamically
+            function createFields() {
+                // Get the number of fields from the input
+                var num = document.getElementById("num").value;
+                // Clear the previous fields
+                document.getElementById("fields").innerHTML = "";
+                // Loop through the number and create input fields
+                for (var i = 0; i < num; i++) {
+                    // Create a div element to hold the input and label
+                    var div = document.createElement("div");
+                    // Create a label element with the field name
+                    var label = document.createElement("label");
+                    label.textContent = "Field " + (i + 1) + ": ";
+                    // Create an input element with the field value
+                    var input = document.createElement("input");
+                    input.type = "text";
+                    input.name = "field" + (i + 1);
+                    // Append the label and input to the div
+                    div.appendChild(label);
+                    div.appendChild(input);
+                    // Append the div to the fields container
+                    document.getElementById("fields").appendChild(div);
+                }
+            }
+
+            // Function to send the JSON object to the express server
+            function sendJSON() {
+                // Get the form data as an array
+                var formData = new FormData(document.getElementById("myForm"));
+                // Convert the form data to a JSON object
+                var json = JSON.stringify(Object.fromEntries(formData));
+                // Send the JSON object to the express server using fetch
+                fetch("/save", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: json,
+                })
+                    // Handle the response from the server
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // Display the response data in the console
+                        console.log(data);
+                    })
+                    .catch((error) => {
+                        // Display the error in the console
+                        console.error(error);
+                    });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Webpage with input fields and JSON</h1>
+        <form id="myForm">
+            <label>Enter the number of fields:</label>
+            <input id="num" type="number" onchange="createFields()" />
+            <div id="fields"></div>
+            <button type="button" onclick="sendJSON()">Send JSON</button>
+        </form>
+    </body>
+</html>
