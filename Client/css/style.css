@@ -3,11 +3,16 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Kanit:wght@300;400&display=swap');
-
+body {
+  background-image : url("wallpaperbetter.com_1366x768.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
 #Menu {
   width : 100vw;
   height : 5vh;
-  background-color: yellow;
+ 
 }
 
 #Display-Hangman{
@@ -24,7 +29,6 @@
 #Interaction form{
   display: flex;
   flex-direction: row-reverse;
-  background-color : red;
   margin-top: 5vh;
   margin-left: 10vw;
   width : 80vw;
@@ -56,42 +60,52 @@ margin-right: 2vw;
   font-size: 25px;
 }
 #HeadToolBar {
-  width : 100vw;
-  height :10vh;
-  background-color:red;
+  border-radius: 50px;
+  position: absolute;
+  top : 3vh;
+  left:2.5vw;
+  width : 95vw;
+  height :7vh;
+  background-color:#45A29E;
+  opacity: 0.75;
+  box-shadow: 5px 5px 5px 5px black;
 }
 #LoginMain {
   display: flex;
-  background-color: yellow;
   width: 100vw;
-  height : 70vh;
+  height : 100vh;
   justify-content: center;
   align-items: center;
 }
 
 #LoginDis{
   border-radius: 50px;
-  width: 40vw;
-  height : 50vh;
-  background-color: blue;
+  width: 20vw;
+  height : 30vh;
+  background-color: #45A29E;
+  opacity : 0.8;
+  border: 2px solid black;
+  box-shadow: #2F3641;
+  box-shadow: 5px 5px 5px 5px black;
 }
-#LoginDis form:nth-child(1){
+#LoginDis form {
   height:100%;
   width:100%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 #submitBtn {
-  margin-top: 5%;
-  margin-bottom: 5%;
-
+  width : 20%;
+  height: 10%;
+}
+.opacity{
+  opacity: 1;
 }
 #submitBtn:hover{
   transition: 1s;
-  background-color: black;
+  background-color: #45A29E;
   color : white;
 }
 label{
@@ -104,9 +118,12 @@ input {
 }
 
 .Input {
+  opacity: 1;
   text-align: center;
+  background-color: white;
+  border: 1px solid black;
   opacity: 0.9;
-  background-color: #2F3641;
+  background-color: #333333;
   color : white;
 }
 #HeadToolBar {
@@ -121,5 +138,16 @@ font-size: 50px;
 #background {
   width:100vw;
   height :100vh;
-  background-color: black;
+}
+#LoginBtn {
+  border-radius: 50px;
+}
+#LoginBtn:hover {
+transition: 1s;
+background-color:#45A29E ;
+}
+@media only screen and (max-width: 600px)  {
+  #LoginDis {
+    width : 20vw;
+  }
 }
