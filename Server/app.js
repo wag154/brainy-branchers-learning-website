@@ -10,6 +10,7 @@ const memoryData = require("./assets/memoryGame/memoryData.json");
 app.use(express.json());
 app.use(cors());
 
+
 app.get("/HangWords", (req, res) => {
     res.send(hangWords);
 });
@@ -73,6 +74,11 @@ app.get("/Questions/:subject", (req, res) => {
     res.send(getExamQuestions[req.params.subject]);
 });
 
+const memoryData = require("./memoryData.json");
+
+app.get("/memorydata", (req, res) => {
+    res.send(memoryData)
+})
 app.post("/save", (req, res) => {
     const json = req.body;
     if (Object.keys(json).length == 0) return;

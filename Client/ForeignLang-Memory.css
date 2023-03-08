@@ -1,0 +1,9 @@
+.correctText {
+    color: green;
+}
+
+.spaENGText {
+    display: flex;
+    justify-content: space-between;
+    
+}
