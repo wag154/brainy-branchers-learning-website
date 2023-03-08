@@ -6,23 +6,27 @@
       "englishKeywords": [2, 6, 8]
     },
     {
-        "spanishText": "Por favor, ¿me podría dar un poquito de perejil?",
-        "englishText": "Please, could I have a little bit of parsley?",
-        "keywords": [1, 2, 7, 9]
+        "spanishText": "Parece ser algo fuera de alcance.",
+        "englishText": "It appears to be something out of reach.",
+        "spanishKeywords": [1, 3, 4, 6],
+        "englishKeywords": [2, 5, 6, 8]
     },
     {
         "spanishText": "Le vamos a dar medicina por vía intravenosa.",
         "englishText": "We are going to give you an intravenous medicine.",
-        "keywords": [2, 5, 8]
+        "spanishKeywords": [2, 5, 8],
+        "englishKeywords": [1, 3, 5, 8, 9]
     },
     {
         "spanishText": "Ese reloj fue un regalo de mi mujer.",
         "englishText": "That watch was a present from my wife",
-        "keywords": [2, 5, 8]
+        "spanishKeywords": [2, 5, 8],
+        "englishKeywords": [2, 5, 8]
     },
     {
         "spanishText": "La película que vimos anoche era divertidísima.",
         "englishText": "The movie we watched last night was hilarious.",
-        "keywords": [2, 6, 7]
+        "spanishKeywords": [2, 6, 7],
+        "englishKeywords": [2, 4, 5, 6, 8]
     }
 ]

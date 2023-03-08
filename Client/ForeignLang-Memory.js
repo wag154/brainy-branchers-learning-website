@@ -18,16 +18,16 @@ const correctList = document.getElementById("correctList");
 const incorrectList = document.getElementById("incorrectList");
 const pointTag = document.getElementById("pointTag");
 
-let randomData = 0;
+let randomData = true;
 let dataHolder;
 
 async function fetchMemoryData() {
     const response = await fetch("http://localhost:3000/memorydata");
     if (response.status == 200) {
         let data = await response.json();
-        if (randomData != true) {
-            data = generateRandomData(data)
-        }
+        //if (randomData != true) {
+        data = generateRandomData(data)
+        //}
         dataHolder = data;
         getJsonText (data);
         showCountdown();
@@ -78,20 +78,20 @@ const acquireUserInput = (userInput) => {
         showForm()
     } else {
         inputMemory.style.display = "none";
-        showFeedback(userInput)
+        points = showFeedback(userInput)
     }
 }
 
-/*async function fetchMemoryData(userInput) {
+async function testFuncFetchMemoryData(randomData, userInput) {
     const response = await fetch("http://localhost:3000/memorydata");
     if (response.status == 200) {
         let data = await response.json();
         if (randomData != true) {
             data = generateRandomData(data);
         }
-        showFeedback(data, userInput);
+        points = showFeedback(userInput);
     }
-}*/
+}
 
 const generateRandomData = (data) => {
     if (randomData == true) {
@@ -117,7 +117,12 @@ const showFeedback = (userInput) => {
     engKeywordArr = processEnglishKeywords(engWordArr, respData.englishKeywords);
   
     //process user input
-    let userInputValue = userInput.target.memoryTypeText.value;
+    let userInputValue;
+    if (randomData != true) {
+        userInputValue = userInput;
+    } else {
+        userInputValue = userInput.target.memoryTypeText.value;
+    }
     let userInputValueArr = userInputValue.split(" ");
 
     let points = 0;
@@ -131,6 +136,7 @@ const showFeedback = (userInput) => {
     -1 points for each word not included within translation.`)
 
     displayPointsAndFeedback(points, userInputValue)
+    return points;
 }
 
 const highlightKeywordsInGreen = (wordArr, keywordIndexArr, appendTag) => {
