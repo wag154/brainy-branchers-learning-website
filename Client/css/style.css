@@ -10,12 +10,6 @@
   background-color: yellow;
 }
 
-h1{
-  font-size: 25px;
-  color : yellow;
-  
-}
-
 #Display-Hangman{
   display: flex;
   height: 60vh;
@@ -70,7 +64,7 @@ margin-right: 2vw;
   display: flex;
   background-color: yellow;
   width: 100vw;
-  height : 85vh;
+  height : 70vh;
   justify-content: center;
   align-items: center;
 }
@@ -114,4 +108,18 @@ input {
   opacity: 0.9;
   background-color: #2F3641;
   color : white;
+}
+#HeadToolBar {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+#Displayer {
+color : black;
+font-size: 50px;
+}
+#background {
+  width:100vw;
+  height :100vh;
+  background-color: black;
 }
