@@ -3,6 +3,8 @@
 }
 
 #Menu {
+  position: absolute;
+  top: 5vh;
   width : 100vw;
   height : 5vh;
   background-color: yellow;
@@ -15,13 +17,14 @@ h1{
 }
 
 #Display-Hangman{
+  position: relative;
   display: flex;
-  height: 60vh;
-  width : 90vw;
-  margin-left: 5vw;
-  margin-top: 5vh;
+  height: 50vh;
+  width : 60vw;
+  border-radius: 50px;
   background-color : blue;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   flex-direction: column-reverse;
 }
 
@@ -49,20 +52,31 @@ width : 30%;
 height :60%;
 margin-right: 2vw;
 }
-.list{
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  list-style-type: none;
-}
-
-.list li {
-  font-size: 25px;
-}
-
 #LoginDis {
   background-color: yellow;
   width: 100vw;
   height : 70vh;
-
+}
+#MainDis{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height :100vh;
+}
+#LettersLefts{
+  border-radius: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute ;
+  top:10%;
+  background-color: white;
+  width: 80%;
+  height :10%;
+}
+#LettersLefts > h1{
+  color :black;
 }
