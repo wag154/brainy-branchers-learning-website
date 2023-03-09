@@ -116,14 +116,95 @@ input {
   color : white;
 }
 
-button{
-  text-align: center;
-  opacity: 0.9;
-  background-color: #2F3641;
-  color : white;
+
+#BodyDis{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height : 100vh;
+  width : 100vw;
 }
-button:hover{
-  transition: 1s;
-  background-color: black;
-  color : white;
+
+#MainDis{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  box-shadow: 5px 5px 2px 2px #333333;
+  width : 50vw;
+  height :40vh;
+  background-color: rgba(171, 235, 210,0.8)
+}
+
+#Header{
+  font-family: 'Tilt Warp', cursive;
+  box-shadow: 5px 5px #333333;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50px;
+  background-color : rgba(171,235,210,0.8);
+  width : 95vw;
+  height : 4vh;
+  display: flex;
+  left : 2.5vw;
+  top:8vh;
+}
+
+#options {
+  position: absolute;
+  top :45% ;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50px;
+  width : 95%;
+  height: 50%;
+}
+
+#questions{
+  font-family: 'Tilt Warp', cursive;
+  position: absolute;
+  top : 24%;
+}
+#options:hover{
+  transition-duration: 1s;
+  box-shadow: 5px 5px #333333;
+}
+body{
+  background-image : url("/Client/css/school-building-5.jpg");
+  background-size: cover;
+}
+.btn{
+  border-radius: 50px;
+  font-family: 'Tilt Warp', cursive;
+  background-color: #ABEBD2;
+  width: 30%;
+  height : 30%;
+}
+.btn:hover{
+  transition: 1s ease-in-out;
+  background-color: #333333;
+  box-shadow:  5px 5px white;
+}
+
+#returnBtn{
+  font-family: 'Tilt Warp', cursive;
+  position: absolute;
+  bottom : 2vh;
+  right : 10vw;
+  height: 10vh;
+  width : 10vw;
+  border-radius: 50px;
+  background-color: #ABEBD2;
+  opacity: 0.85;
+}
+
+#returnBtn:hover{
+
+  transition: 1s ease-in-out;
+  background-color: #333333;
+  box-shadow:  5px 5px white;
 }
