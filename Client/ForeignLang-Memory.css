@@ -1,5 +1,14 @@
 .correctText {
     color: green;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.correctText:hover {
+    color: green;
+    font-weight: bolder;
+    font-size: 30px;
+    text-decoration: underline;
 }
 
 .spaENGText {
@@ -12,6 +21,197 @@ body {
     text-align: center;
 }
 
+.pageBanner {  
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(171, 235, 210, 50);
+}
+
+.pageBanner::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-image: url("./assets/images/spanishbanner.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 50%;
+}
+
 h1 {
-    padding-top: 5%;
+    position: relative;
+}
+
+body {
+    
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    bottom: 0;
+    right: 0px;
+    left: 0px;
+    background-image: url("./assets/images/worldlanguage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    background-color: white;
+    background-size: contain;
+}
+
+.pageContent {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(217, 217, 217, .9);
+    border-radius: 30px;
+    margin-top: 3%;
+    margin-right: 30%;
+    margin-left: 30%;
+    padding-bottom: 5%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+h2, h3, form, p, ol, ul {
+    position: relative;
+}
+
+.contentMemorise {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.formDiv {
+    padding-top: 10px;
+    font-size: 25px;
+}
+
+#countdownTagHeader {
+    font-size: 30px;
+}
+
+#countdownTagNumber {
+    font-size: 30px;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color: black;
+}
+
+#formLabel {
+
+}
+
+#memoryTypeText {
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 15px;
+    
+}
+
+#memoryTypeText:hover {
+    color: white;
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 15px;
+    background-color: black;
+}
+
+#submitButton {
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255);
+}
+
+#submitButton:hover {
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 15px;
+    background-color: rgba(171, 235, 210);
+}
+
+#submitButton:active {
+    color: white;
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0);
+}
+
+#examAnswerSection {
+    margin-top: -50px;
+    font-size: 20px;
+}
+
+#examAnswerSection h3 {
+    background-color: rgba(69, 162, 158, 0.5);
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: rgba(69, 162, 158);
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#examAnswerSection h3:hover {
+    color: white;
+    background-color: rgba(0, 0, 0);
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: rgba(69, 162, 158);
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#userText {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+#correctIncorrect {
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+}
+#correct {
+    padding: 5px;
+    background-color: rgba(0, 128, 0, .5);
+    margin-right: 15px;
+    border-radius: 10px;
+}
+#correctList {
+    margin-top: -10px;
+    display: inline-block;
+    text-align: left;
+}
+#incorrect {
+    padding: 5px;
+    margin-left: 15px;
+    background-color: rgba(255, 0, 0, .5);
+    border-radius: 10px;
+}
+#incorrectList {
+    margin-top: -10px;
+    display: inline-block;
+    text-align: left;
+}
+
+#pointTag{
+    text-decoration: underline;
+    font-weight: bolder;
+    margin-bottom: -50px;
 }
