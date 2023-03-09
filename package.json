@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wag154/brainy-branchers-learning-website/issues"
   },
-  "homepage": "https://github.com/wag154/brainy-branchers-learning-website#readme"
+  "homepage": "https://github.com/wag154/brainy-branchers-learning-website#readme",
+  "dependencies": {
+    "jest": "^29.5.0"
+  }
 }

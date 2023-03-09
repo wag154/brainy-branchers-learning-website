@@ -4,36 +4,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel = "stylesheet" href = "css/style.css">
+
+  <link rel = "stylesheet" href = "/Client/assets/css/Sigstyle.css">
+
+
   <title>Document</title>
 </head>
 <body>
 
 <section id = "background">
   <section id = "HeadToolBar">
-    <h1 id = "Displayer">Login</h1>
+
+    <h1 id = "Displayer">Sign Up?</h1>
   </section>
   
   <section id = "LoginMain">
+
     <div id = "LoginDis">
       <form>
-        
-        <label for = "Username">Username:</label>
+        <label for = "Username"><strong>Username:</strong></label>
         <input class = "Input" type = "text" name = "Username">
         <br><br>
-        <label for = "Password">Password:</label>
-        <input class = "Input" type = "password" name = "Password">
-        <br><br>
-        <label for = "StudentName" id = "NameLabel">Name :</label>
+        <label for = "StudentName" id = "NameLabel"><strong>Name :</strong></label>
         <input class ="Input" name = "StudentName" type="text" id = "NameInput">
         <br><br>
+        <label for = "Password"><strong>Password:</strong></label>
+        <input class = "Input" type = "password" name = "Password">
+        <br><br>
         <input id = "submitBtn" type = "submit" value = "submit">
-        
       </form>
       <button id ="LoginBtn" onclick="LoginBtn()">Login?</button>
     </div>
+    
+    
+    <!--
+        Below is return button
+    -->
+    <a href="#"><button id ="ReturnBtn">Return To Menu</button></a>
   </section>
-  <script src = "js/SignUp.js"></script>  
 </section>
-</body>
+
+  <script src = "js/SignUp.js"></script> 
 </html>
