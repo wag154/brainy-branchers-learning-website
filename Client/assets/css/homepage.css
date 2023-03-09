@@ -1,13 +1,18 @@
 .navbar {
-    position: relative;
+    position: fixed;
     overflow: hidden;
-    background-color: white;
+    background-color: #abebd2;
+    opacity: 65%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    width: 100%;
+}
+#navigation{
+    margin-bottom: 25px;
+    display: flex;
 }
 body {
     background-image: url("https://jooinn.com/images/school-building-5.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
 }
 /* Navbar links */
 .navbar a {
@@ -18,14 +23,19 @@ body {
     padding: 14px 16px;
     text-decoration: none;
 }
-#logo img{
-    margin-left: -50px; 
-}
 #logo {
     position: absolute;
-    margin-left: -50px; /* added */
     display: inline-block;
+    margin-left: -50px;
+    left: 50%;
 }
+#logo img {
+    display: inline;
+    width: 64px;
+    height: 64px;
+    margin-top:-15px;
+}
+
 #student-picture {
     border-radius: 50%;
     width: 45px;
@@ -35,7 +45,7 @@ body {
 .dropdown {
     float: right;
     overflow: hidden;
-    display: block;
+    display: flex;
 }
 .dropdown-left {
     float: left;
@@ -103,11 +113,62 @@ body {
 .main-section {
     padding-left: 150px;
     padding-right: 150px;
-    background-color: white;
+    background-color: #abebd2;
+    opacity: 90%;
+    margin-bottom: 50px;
 }
 .secondary-section {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: #abebd2;
+    opacity:90%;
+    margin-bottom: 50px;
 }
+.lecture-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+    padding: 25px;
+}
+.lecture-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+/* use css to style the images */
+.lecture-box img {
+    max-height: 180px;
+    max-width: 180px;
+    object-fit: cover;
+}
+
+.list {
+    display: none; /* hide the list by default */
+    position: absolute;
+    top: 220px;
+    right: 10px;
+    width: 200px;
+    border: 2px solid black;
+    background-color: white;
+    list-style: none;
+}
+
+/* use css to style the list items */
+.list li {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+/* use css to style the list links */
+.list li a {
+    text-decoration: none;
+    color: black;
+}
+
 #user-stats {
     text-align: center;
     border-top: 0.5px solid black;
@@ -122,13 +183,14 @@ body {
 
 .schedule {
     display: grid;
-    background-color: white;
+    background-color: #abebd2;
+    opacity:90%;
     grid-template-columns: 100px 1fr;
     grid-template-rows: repeat(14, 20px);
     gap: 10px;
     border: 2px solid black;
-    max-width: 500px;
-    max-height: 500px;
+    width: 450px;
+    margin-right:50px;
 }
 
 .timeline {
@@ -177,9 +239,64 @@ body {
     width: 500px;
     height: 150px;
     overflow-y: scroll;
-    background-color: white;
+    background-color: #abebd2;
+    opacity: 90%;
     border: 1px solid black;
 }
-#due-box{
+#due-box {
     padding-bottom: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+#welcome {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#welcome i {
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+}
+
+#welcome i {
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+#student-box {
+    display:flex;
+    margin-top: 100px;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+
+.message-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.schedule-box{
+    display:flex;
 }
