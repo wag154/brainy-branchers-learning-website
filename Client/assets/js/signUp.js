@@ -44,9 +44,9 @@ async function SignUp(username, password, name) {
 
 const getUserInfo = (e) => {
     e.preventDefault;
-    const userName = e.target.Username.value;
-    const passWord = e.target.Password.value;
-    const UserNickName = e.target.StudentName.value;
+    const userName = e.target.username.value;
+    const passWord = e.target.password.value;
+    const userNickName = e.target.studentName.value;
 
     for (let i = 0; userName.length > i; i++) {
         if (userName[i] == " ") {
@@ -55,8 +55,8 @@ const getUserInfo = (e) => {
         if (passWord[i] == " ") {
             passWord[i] = "";
         }
-        if (UserNickName[i] == " ") {
-            UserNickName[i] == "";
+        if (userNickName[i] == " ") {
+            userNickName[i] == "";
         }
     }
 
@@ -64,18 +64,18 @@ const getUserInfo = (e) => {
         alert("Please Enter A Username");
     } else if (passWord == "") {
         alert("Please Enter A password");
-    } else if (UserNickName == "") {
+    } else if (userNickName == "") {
         alert("Please Enter A Name");
     } else {
         if (signUpOption == true) {
-            SignUp(userName, passWord, UserNickName);
+            SignUp(userName, passWord, userNickName);
         } else {
             Login(userName, passWord);
         }
     }
 
     e.target.userName.value = "";
-    e.target.Password.value = "";
+    e.target.password.value = "";
 };
 
 function LoginBtn() {
