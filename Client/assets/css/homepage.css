@@ -1,0 +1,347 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
+
+.navbar {
+    border-radius: 50px;
+    position: fixed;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #abebd2;
+    margin-left:2.5vw ;
+    background-color:rgba(127,235,210,0.7) ;
+    box-shadow: 5px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+    width: 95vw;
+    height: 5vh;
+}
+
+body {
+    background-image: url("https://jooinn.com/images/school-building-5.jpg");
+}
+/* Navbar links */
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#logo {
+    position: absolute;
+    display: inline-block;
+    margin-left: -50px;
+    left: 50%;
+}
+#logo img {
+    display: inline;
+    width: 64px;
+    height: 64px;
+    margin-top:-15px;
+}
+
+#student-picture {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+/* Dropdown button */
+.dropdown {
+    float: right;
+    overflow: hidden;
+    display: flex;
+}
+.dropdown-left {
+    float: left;
+    overflow: hidden;
+}
+.dropdown-left .dropbtn-left {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn  {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left : 2vw;
+    top : 5vh;
+    background-color:rgba(127,235,210,0.7) ;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    left : 1vw;
+}
+
+/* Show the dropdown menu on hover */
+/*.dropdown:hover .dropdown-content {
+    display: block;
+}
+*/
+
+.content {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.main-section {
+    box-shadow: 5px 5px #333333;
+    border-radius: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+    background-color: #abebd2;
+    opacity: 90%;
+    margin-bottom: 50px;
+}
+.secondary-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #abebd2;
+    opacity:90%;
+    border-radius: 50px;
+    margin-bottom: 50px;
+}
+.lecture-container {
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+    padding: 25px;
+}
+.lecture-box {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+/* use css to style the images */
+.lecture-box img {
+    max-height: 180px;
+    max-width: 180px;
+    object-fit: cover;
+}
+
+.list {
+    display: none; /* hide the list by default */
+    position: absolute;
+    top: 220px;
+    right: 10px;
+    width: 200px;
+    border: 2px solid black;
+    background-color: white;
+    list-style: none;
+}
+
+/* use css to style the list items */
+.list li {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+/* use css to style the list links */
+.list li a {
+    text-decoration: none;
+    color: black;
+}
+
+#user-stats {
+    text-align: center;
+    border-top: 0.5px solid black;
+}
+
+#user-stats h1 {
+    font-size: 15px;
+}
+#user-stats p {
+    border-top: 0.3px solid black;
+}
+
+.schedule {
+    display: grid;
+    background-color: #abebd2;
+    opacity:90%;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: repeat(14, 20px);
+    gap: 10px;
+    border: 2px solid black;
+    width: 450px;
+    margin-right:50px;
+}
+
+.timeline {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.timeline div {
+    border-bottom: 1px solid black;
+}
+.events div {
+    border-bottom: 1px solid black;
+}
+
+.events {
+    grid-column: 2 / 3;
+    grid-row: 1 / -1;
+    display: flex;
+}
+
+.day {
+    flex: 1;
+    position: relative;
+    border-left: 2px solid black;
+}
+
+.event {
+    margin-left: 5px;
+    position: absolute;
+    background-color: lightblue;
+    border: 1px solid black;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid black; /* add this line */
+}
+
+.event:hover {
+    background-color: blue;
+    color: white;
+}
+
+#due-box {
+    width: 500px;
+    height: 150px;
+    overflow-y: scroll;
+    background-color: #abebd2;
+    opacity: 90%;
+    border: 1px solid black;
+}
+#due-box {
+    padding-bottom: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+#welcome {
+    border-radius: 50px;
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#welcome i {
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+}
+
+#welcome i {
+    animation: bounce 0.5s infinite alternate;
+}
+
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+#student-box {
+    display:flex;
+    margin-top: 100px;  
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+
+.message-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#DisArrow {
+    transition: 1s;
+    transform: rotate(-90deg);
+}
+
+.schedule-box{
+    display:flex;
+}
+#games {
+    position: absolute;
+    top : 5vh;
+    left : 1vw;
+}
+
+.linkHover:hover{
+    transition-duration: 1s;
+    font-size: 1.2em;
+    text-shadow: 2px 2px #abebd2;
+}
+.LoginChoice {
+    display:none;
+    background-color:rgba(127,235,210,0.7) ;
+    transition:all 1s ease-in-out;
+    position:absolute;
+    top: 4vh;
+    right :1.5vw;
+}
+.LoginChoice a:hover{
+    transition: 0.5s all ease-in-out;
+    scale:(1.2);
+    box-shadow: 2px 2px #333333;
+}
+#studentArrow{
+    transition: 1s ease-in-out;
+    transform: rotate(-90deg);
+}

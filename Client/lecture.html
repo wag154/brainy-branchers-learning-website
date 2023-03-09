@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/lecture.css" />
+        <link rel="stylesheet" href="assets/css/hangManGame.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+        <title>Lecture -</title>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="dropdown-left">
+                <button class="dropbtn-left">
+                    Links
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div id="links" class="dropdown-content">
+                    <a href="homepage.html">Home</a>
+                    <div id="user-stats">
+                        <h1>Your Stats</h1>
+                        <p>test</p>
+                        <p>test</p>
+                        <p>test</p>
+                    </div>
+                </div>
+            </div>
+            <a id="logo"href="index.html"><img src="assets/images/stock-logo.png" alt="schoolName"
+            /></a>
+            <div class="dropdown">
+                <img
+                    id="student-picture"
+                    src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352088-stock-illustration-default-placeholder-profile-icon.jpg"
+                    alt="Avatar"
+                />
+                <button class="dropbtn">
+                    Student name
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#contact">Contact</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#gallery">Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="carousel-container">
+                <section class="carousel-wrapper">
+                    <section class="gameBox"></section>
+                </section>
+                <div class="slide-show-control">
+                    <div class="left-arrow">
+                        <img class="control-arrows" src="assets/images/icons/left-arrow.png" alt ="Previous Slide Button"/>
+                        <span title="Previous">Previous</span>
+                    </div>
+                    <div class="right-arrow">
+                        <img class="control-arrows" src="assets/images/icons/right-arrow.png" alt ="Next Slide Button"/>
+                        <span title="Next">Next</span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-details">
+                <h4>Current Page:</h4>
+                <div class="current-page"></div>
+                <h4>Total Pages:</h4>
+                <div class="total-pages"></div>
+            </div>
+        </div>
+        <script src="assets/js/nameThatSong.js"></script>
+        <script src="assets/js/memoryGame.js"></script>
+        <script src="assets/js/hangManGame.js"></script>
+        <script src="assets/js/lectureHandler.js"></script>
+    </body>
+</html>

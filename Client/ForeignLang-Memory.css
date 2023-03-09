@@ -1,0 +1,17 @@
+.correctText {
+    color: green;
+}
+
+.spaENGText {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    padding-top: 5%;
+}
