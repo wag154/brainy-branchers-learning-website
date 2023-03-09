@@ -137,6 +137,8 @@ input {
   font-family: 'Tilt Warp', cursive;
 }
 .Input:focus {
+  width : 90%;
+  height :5%;
   opacity : 1;
   margin : 10px;
   box-shadow : 3px 3px white;
