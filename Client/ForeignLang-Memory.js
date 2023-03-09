@@ -20,16 +20,29 @@ const pointTag = document.getElementById("pointTag");
 
 let randomData = true;
 let dataHolder;
+var  TempObj =  {
+    spanishText: "La película que vimos anoche era divertidísima.",
+    englishText: "The movie we watched last night was hilarious.",
+    spanishKeywords: [2, 6, 7],
+    englishKeywords: [2, 4, 5, 6, 8]
+}
 
 async function fetchMemoryData() {
-    const response = await fetch("http://localhost:3000/memorydata");
-    if (response.status == 200) {
-        let data = await response.json();
-        //if (randomData != true) {
-        data = generateRandomData(data)
-        //}
-        dataHolder = data;
-        getJsonText (data);
+    try{
+        const response = await fetch("http://localhost:3000/memorydata");
+        if (response.status == 200) {
+            let data = await response.json();
+            //if (randomData != true) {
+                data = generateRandomData(data)
+                //}
+                dataHolder = data;
+                getJsonText (data);
+                showCountdown();
+            }
+        }
+    catch{
+        dataHolder = TempObj;
+        getJsonText (dataHolder);
         showCountdown();
     }
 }
@@ -41,7 +54,7 @@ const getJsonText = (data) => {
 }
 
 const showCountdown = () => {
-    let countdownTimer = 2;
+    let countdownTimer = 5;
     countdown = setInterval (() => {
         countdownTagNumber.textContent = countdownTimer-1;
         countdownTimer--;

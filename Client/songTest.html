@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Name That Tune</title>
+        <script src="assets/js/nameThatSong.js"></script>
+    </head>
+    <body>
+        <h1>Name That Tune</h1>
+        <p>Can you guess the name of this song?</p>
+        
+        <audio
+            id="musicObject"
+            src="http://www.hyperion-records.co.uk/audiotest/18%20MacCunn%20The%20Lay%20of%20the%20Last%20Minstrel%20-%20Part%202%20Final%20chorus%20O%20Caledonia!%20stern%20and%20wild.MP3"
+            
+        ></audio>
+        <button id="playPauseBtn" onclick="playPauseAudio()">Play</button>
+        <button id="startOverBtn" onclick="startOverAudio()">Start Over</button>
+        <script>
+            let myAudio = document.getElementById("musicObject");
+            let playPauseBtn = document.getElementById("playPauseBtn");
+            let startOverBtn = document.getElementById("startOverBtn");
+
+            function playPauseAudio() {
+                if (myAudio.paused) {
+                    myAudio.play();
+                    playPauseBtn.textContent = "Pause";
+                } else {
+                    myAudio.pause();
+                    playPauseBtn.textContent = "Play";
+                }
+            }
+
+            function startOverAudio() {
+                myAudio.currentTime = 0;
+                myAudio.play();
+                playPauseBtn.textContent = "Pause";
+            }
+        </script>
+        <input type="text" id="answer" placeholder="Enter your answer" />
+        <button onclick="checkAnswer()">Check Answer</button>
+        <p id="result"></p>
+        <!-- <form>
+            <label for="input">Enter a function:</label>
+            <input type="text" id="input" name="input" />
+            <button type="button" onclick="setSong()">Run</button>
+        </form> -->
+    </body>
+</html>
