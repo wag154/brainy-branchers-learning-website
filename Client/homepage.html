@@ -15,14 +15,21 @@
         <section id="navigation">
             <div class="navbar">
                 <div class="dropdown-left">
-                    <button class="dropbtn-left">
-                        Stuff
-                        <i class="fa fa-caret-down"></i>
+                    <!--stuff now display on click-->
+                    <button id = "buttonRes" class="dropbtn-left" onclick="DisplaySchedule()">
+                        <strong>
+                            Stuff
+                        </strong>
+                        <i id = "DisArrow"class="fa fa-caret-down"></i>
                     </button>
+
                     <div id="games" class="dropdown-content">
-                        <a href="#contact">Contact</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#gallery">Gallery</a>
+
+                        <!--Hidden stuff options-->
+                        <a class = "linkHover" href="#contact">Contact</a>
+                        <a class = "linkHover" href="#blog">Blog</a>
+                        <a class = "linkHover" href="#gallery">Gallery</a>
+                       
                         <div id="user-stats">
                             <h1>Your Stats</h1>
                             <p>test</p>
@@ -39,15 +46,20 @@
                         src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352088-stock-illustration-default-placeholder-profile-icon.jpg"
                         alt="Avatar"
                     />
-                    <button class="dropbtn">
+                    <!--Login choice for user-->
+                    <button class="dropbtn" onclick="DisplayLoginOptions()">
+                        <strong>
                         Student name
-                        <i class="fa fa-caret-down"></i>
+                            </strong>
+                        <i id = "studentArrow" class="fa fa-caret-down"></i>
                     </button>
-                    <div class="dropdown-content">
-                        <a href="#contact">Contact</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#gallery">Gallery</a>
+
+                    <div class = "LoginChoice">
+                        <!--Here is link for signUp page-->
+                        <a href = "signUp.html">Login?</a>
+
                     </div>
+                
                 </div>
             </div>
         </section>
