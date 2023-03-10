@@ -15,7 +15,6 @@ const ExampleWords = [
     "pool",
 ];
 
-
 let max = ExampleWords.length;
 let min = 1;
 let random = Math.floor(Math.random() * (max - min) + min);
@@ -113,28 +112,37 @@ const CheckLetter = (e) => {
 const startHangManGame = () => {
     document.getElementById("hangManGame").innerHTML = `
     <section id = "Menu">
-    <ul class = "list">
-    <li><a href = "#">1</a></li>
-    <li><a href = "#">2</a></li>
-    <li><a href = "#">3</a></li>
-    </ul>
-  </section>
-  
-  <section id = "Display-Hangman">
-    <div id = "HangmanDis">
 
-    </div>
-    <h1 class="hangman" id = "Describe">No specific trend</h1>
-    <h1 class="hangman" id = "LettersUsed"></h1>
-    <div id = "LettersLefts"><h1></h1></div>
+    <h1><strong>Hangman Game</strong></h1>
 
   </section>
-  
-  <section id= "Interaction">
-    <form>
-      <input type = "submit" value = "submit">
-      <input id = "letter" type = "text" name = "UserInput" maxlength="1" placeholder="Enter a letter">
-    </form>
+
+  <section id = "MainDis">
+    
+    <section id = "Display-Hangman">
+      <div id = "HangmanDis">
+        
+      </div>
+      
+      <section id = "DescribeDis">
+        <h1 id = "Describe">No specific trend</h1>
+      </section>
+      
+      <section id = "UsedLettersDis">
+        <h1 id = "LettersUsed"></h1>
+      </section>
+      
+      <div id = "LettersLefts"><h1></h1></div>
+      
+    </section>
+    
+    <section id= "Interaction">
+      <form>
+        <input class = "btn" type = "submit" value = "submit">
+        <input class = "Input" id = "letter" type = "text" name = "UserInput" maxlength="1" placeholder="Enter a letter">
+      </form>
+    </section>
+    <a><button id = "ReturnBtn"></button></a>
   </section>
     `;
     HangmanDisplay = document.querySelector("#HangmanDis");
@@ -147,4 +155,3 @@ const startHangManGame = () => {
     DisplayHang(" ");
     EnteredLetter.addEventListener("submit", CheckLetter);
 };
-

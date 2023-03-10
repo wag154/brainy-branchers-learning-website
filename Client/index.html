@@ -15,19 +15,24 @@
         <section id="navigation">
             <div class="navbar">
                 <div class="dropdown-left">
-                    <button class="dropbtn-left">
-                        Stuff
-                        <i class="fa fa-caret-down"></i>
+                    <!--stuff now display on click-->
+                    <button id = "buttonRes" class="dropbtn-left" onclick="DisplaySchedule()">
+                        <strong>
+                            Quick Links
+                        </strong>
+                        <i id = "DisArrow"class="fa fa-caret-down"></i>
                     </button>
+
                     <div id="games" class="dropdown-content">
-                        <a href="#contact">Contact</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#gallery">Gallery</a>
+
+                        <!--Hidden stuff options-->
+                        <a class = "linkHover" href="/Client/lecture.html">Lecture</a>
+                        <a class = "linkHover" href="">Contact</a>
                         <div id="user-stats">
-                            <h1>Your Stats</h1>
-                            <p>test</p>
-                            <p>test</p>
-                            <p>test</p>
+                            <h1>Statics</h1>
+                            <p>HangMan - Win: 0, Loss:0</p>
+                            <p>MemoryGame - Points Average: 0pts</p>
+                            <p>Song Game - Win:0, Loss: 0</p>
                         </div>
                     </div>
                 </div>
@@ -39,17 +44,16 @@
                         src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352088-stock-illustration-default-placeholder-profile-icon.jpg"
                         alt="Avatar"
                     />
-                    <button class="dropbtn">
-                        Student name
-                        <i class="fa fa-caret-down"></i>
+                    <button class="dropbtn" onclick="DisplayLoginOptions()">
+                        <strong>
+                        test
+                            </strong>
+                        <i id = "studentArrow" class="fa fa-caret-down"></i>
                     </button>
-                    <div class="dropdown-content">
-                        <a href="#contact">Contact</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#gallery">Gallery</a>
+
+                    <div class = "LoginChoice">
+                        <a href = "signUp.html">Log out</a>
                     </div>
-                </div>
-            </div>
         </section>
 
         <section id="welcome">
@@ -57,28 +61,28 @@
                 <div class="main-section">
                     <h1>Welcome</h1>
                     <h2>to</h2>
-                    <h3>School_name</h3>
+                    <h3>Test School</h3>
                 </div>
                 <div class="secondary-section">
                     <p>Lectures</p>
                     <div class="lecture-container">
                         <div class="lecture-box">
-                            <img
-                                src="https://source.unsplash.com/random/200x200?cat"
-                                alt="cat"
-                            />
+                            <a href ="lecture.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="lecture1"
+                            /></a>
                         </div>
                         <div class="lecture-box">
-                            <img
-                                src="https://source.unsplash.com/random/200x200?dog"
-                                alt="dog"
-                            />
+                            <a href ="lecture.html"><img
+                                src="https://source.unsplash.com/random/200x200?song"
+                                alt="lecture2"
+                            /></a>
                         </div>
                         <div class="lecture-box">
-                            <img
-                                src="https://source.unsplash.com/random/200x200?bird"
-                                alt="bird"
-                            />
+                            <a href ="lecture.html"><img
+                                src="https://source.unsplash.com/random/200x200?hangman"
+                                alt="lecture3"
+                            /></a>
                         </div>
                         <div class="button" onclick=`toggleList("#lectureList")`>Show list</div>
                     </div>
@@ -93,22 +97,22 @@
                     <p>Practice games</p>
                     <div class="lecture-container">
                         <div class="lecture-box">
-                            <img
-                                src="https://source.unsplash.com/random/200x200?cat"
-                                alt="cat"
-                            />
+                            <a href ="./games/hangman.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="game1"
+                            /></a>
                         </div>
                         <div class="lecture-box">
-                            <img
-                                src="https://source.unsplash.com/random/200x200?dog"
-                                alt="dog"
-                            />
+                            <a href ="Client/games/memory/ForeignLang-Memory.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="game2"
+                            /></a>
                         </div>
                         <div class="lecture-box">
-                            <img
-                                src="https://source.unsplash.com/random/200x200?bird"
-                                alt="bird"
-                            />
+                            <a href ="./games/songGame.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="game3"
+                            /></a>
                         </div>
                         <div class="button" onclick="toggleList()">Show list</div>
                     </div>
@@ -142,8 +146,14 @@
                     </div>
                 </div>
                 <div class="message-section">
-                    <div id="due-box"></div>
-                    <div id="due-box"></div>
+                    <p class="top-of-box">Your New Messages</p>
+                    <div id="due-box"class="due-box">
+                       
+                    </div>
+                    <p class="top-of-box">Your Due Tasks</p>
+                    <div id="due-box1"class="due-box">
+                        
+                    </div>
                 </div>
             </div>
             

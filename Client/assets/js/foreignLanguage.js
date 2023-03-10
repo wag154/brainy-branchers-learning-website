@@ -1,17 +1,21 @@
-let countdownTagHeader;
-let countdownTagNumber;
-let memoryTag;
-let inputMemory;
-let examAnswer;
-let countdown;
+const countdownTagHeader = document.getElementById("countdownTagHeader");
+const countdownTagNumber = document.getElementById("countdownTagNumber");
+const memoryTag = document.getElementById("memoryTag");
+const inputMemory = document.querySelector("#inputMemory form");
+const examAnswer = document.getElementById("examAnswerSection");
 
-let pTagText;
-let spaText;
-let engText;
-let userText;
-let correctList;
-let incorrectList;
-let pointTag;
+let countdown;
+memoryTag.style.display = "none";
+inputMemory.style.display = "none";
+examAnswer.style.display = "none";
+
+const pTagText = document.querySelector("#spaText p");
+const spaText = document.getElementById("spaText");
+const engText = document.getElementById("engText");
+const userText = document.getElementById("userText");
+const correctList = document.getElementById("correctList");
+const incorrectList = document.getElementById("incorrectList");
+const pointTag = document.getElementById("pointTag");
 
 let randomData = true;
 let dataHolder;
@@ -21,14 +25,13 @@ var TempObj = {
     spanishKeywords: [2, 6, 7],
     englishKeywords: [2, 4, 5, 6, 8],
 };
+
 async function fetchMemoryData() {
     try {
         const response = await fetch("http://localhost:3000/memorydata");
         if (response.status == 200) {
             let data = await response.json();
-            //if (randomData != true) {
             data = generateRandomData(data);
-            //}
             dataHolder = data;
             getJsonText(data);
             showCountdown();
@@ -113,7 +116,6 @@ const generateRandomData = (data) => {
 
 const showFeedback = (userInput) => {
     let respData = dataHolder;
-    console.log(dataHolder)
     let span = document.createElement("SPAN");
     span.setAttribute("class", "correctText");
 
@@ -215,76 +217,9 @@ const displayPointsAndFeedback = (pointsNumber, userInputValue) => {
     let pointCalculation = document.createElement("h3");
     pointCalculation.textContent = `Points: ${pointsNumber}`;
     pointTag.appendChild(pointCalculation);
-
     userText.innerHTML = userInputValue;
-
     examAnswer.style.display = "block";
 };
 
-const startMemoryGame = () => {
-    document.getElementById("memoryGame").innerHTML = `
-    <div class="pageBanner">
-    <h1>Test Your Memory in Foreign Languages</h1>
-    </div>
-    <div class="pageContent">
-    <div class="contentMemorise">
-    <h2>Memorise the Sentences and Write what you See</h2>
-    </div>
-    <h3 id="countdownTagHeader">countdown</h3>
-    <h3 id="countdownTagNumber">5</h3>
-    <h2 id="memoryTag">
-    </h2>
-    <section id="inputMemory">
-        <form>
-            <div class="formDiv">
-            <label id="formLabel">Repeat what you say in English</label>
-            </div>
-            <div class="formDiv">
-            <input type="text" id="memoryTypeText", placeholder="Your Sentence">
-            </div>
-            <div class="formDiv">
-            <input type="submit" value="submit" id="submitButton">
-            </div>
-        </form>
-    </section>
-    <section id="examAnswerSection">
-        <h3>What was in Spanish</h3>
-        <p id="spaText"></p>
-        <h3>English Translation</h3>
-        <p id="engText"></p>
-        <h3>What you wrote</h3>
-        <p id="userText"></p>
-        
-        <div id="correctIncorrect">
-        <div id="correct">
-        <h2>Keywords you got correct</h3>
-        <ol id="correctList"></ol>
-        </div>
-        <div id="incorrect">
-        <h2>Words you got incorrect</h3>
-        <ol id="incorrectList"></ol>
-        </div>
-        </div>
-        <h2 id="pointTag"></h2>
-    </section>
-    </div>
-    `;
-    countdownTagHeader = document.getElementById("countdownTagHeader");
-    countdownTagNumber = document.getElementById("countdownTagNumber");
-    memoryTag = document.getElementById("memoryTag");
-    inputMemory = document.querySelector("#inputMemory form");
-    examAnswer = document.getElementById("examAnswerSection");
-
-    memoryTag.style.display = "none";
-    inputMemory.style.display = "none";
-    examAnswer.style.display = "none";
-
-    pTagText = document.querySelector("#spaText p");
-    spaText = document.getElementById("spaText");
-    engText = document.getElementById("engText");
-    userText = document.getElementById("userText");
-    correctList = document.getElementById("correctList");
-    incorrectList = document.getElementById("incorrectList");
-    pointTag = document.getElementById("pointTag");
-    fetchMemoryData();
-};
+//showCountdown();
+fetchMemoryData();

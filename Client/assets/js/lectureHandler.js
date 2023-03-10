@@ -77,51 +77,11 @@ class Carousel {
                 this.countTotalPages();
         }
     }
-    fetch() {
-        const data = [
-            {
-                id: "1",
-                data: "Data 1",
-            },
-            {
-                id: "2",
-                data: "Data 2",
-            },
-            {
-                id: "3",
-                data: "Data 3",
-            },
-            {
-                id: "4",
-                data: "Data4",
-                gameName: "nameThatSong",
-            },
-            {
-                id: "5",
-                data: "Data 5",
-                image: "https://pixy.org/src/21/219269.jpg",
-            },
-            {
-                id: "6",
-                data: "Data 6",
-                gameName: "hangManGame",
-            },
-            {
-                id: "7",
-                data: "Data 7",
-                gameName: "memoryGame",
-            },
-        ];
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(data);
-            }, 2000);
-        });
-    }
     async getData() {
         try {
-            const response = await this.fetch();
-            this.data = response;
+            const response = await fetch("http://127.0.0.1:3000/lecture1")
+            .then((response) => response.json())
+            .then((data)=>this.data = data)
             this.displayData();
         } catch (error) {
             console.log("fetch failed", error);

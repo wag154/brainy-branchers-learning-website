@@ -1,1 +1,6 @@
-{"id":1589549077526850,"username":"test","password":"password","name":"name"}
+{
+    "id": 1589549077526850,
+    "username": "test",
+    "password": "password",
+    "name": "name"
+}

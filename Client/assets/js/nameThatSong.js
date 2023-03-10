@@ -18,14 +18,28 @@ async function fetchSongAndAnswer(id) {
             "http://www.hyperion-records.co.uk/audiotest/18%20MacCunn%20The%20Lay%20of%20the%20Last%20Minstrel%20-%20Part%202%20Final%20chorus%20O%20Caledonia!%20stern%20and%20wild.MP3";
         document.getElementById(
             "nameThatSong"
-        ).innerHTML = `<h1>Name That Tune</h1>
-        <p>Can you guess the name of this song?</p>
-        <audio id="musicObject" src="${response}"></audio>
-        <button id="playPauseBtn" onclick="playPauseAudio()">Play</button>
-        <button id="startOverBtn" onclick="startOverAudio()">Start Over</button>
-        <input type="text" id="answerInput" placeholder="Enter your answer" />
-        <button onclick="checkAnswer()">Check Answer</button>
-        <p id="result">test</p>`;
+        ).innerHTML = `<section id = "header">
+                
+        <h1>Name That Tune!</h1>
+        
+        <p>Can <strong>YOU</strong> guess the name of this <strong>SONG</strong>?</p>
+        
+    </section>
+    <section id = "DisplayBody">
+        <section id = "DisplayMusic">
+
+            <audio id="musicObject" src="http://www.hyperion-records.co.uk/audiotest/18%20MacCunn%20The%20Lay%20of%20the%20Last%20Minstrel%20-%20Part%202%20Final%20chorus%20O%20Caledonia!%20stern%20and%20wild.MP3"></audio>
+            <div class = "resultContainer">
+                <p id="result" style = "color: black;"><strong>Result appear here!</strong></p>
+            </div>
+
+            <input type="text" id="answerInput" placeholder="Enter your answer" />
+            
+            <button class = "btn" id="startOverBtn" onclick="startOverAudio()"><strong>Start Over</strong></button>
+            <button class = "btn" id="playPauseBtn" onclick="playPauseAudio()"><strong>Play</strong></button>
+            <button class = "btn" id = "CheckBtn" onclick="checkAnswer()"><strong>Answer</strong></button>
+</section>
+</section>`;
         // setSong(response);
     } catch (error) {
         console.log("fetch failed", error);

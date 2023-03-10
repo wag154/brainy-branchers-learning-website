@@ -6,12 +6,10 @@ const HeadDis = document.querySelector("#Displayer");
 const signUpOption = true;
 
 const check = (data) => {
-    if (data.includes(true)) {
-        HeadDis.textContent = "LOGIN SUCCESSFUL!";
-        // add link
-    }
+    window.location.replace("index.html");
 };
 async function Login(userName, password) {
+    window.location.replace("./index.html");
     try {
         const resp = await fetch(
             `http://127.0.0.1:3000/Login/${userName}&${password}`
@@ -19,7 +17,9 @@ async function Login(userName, password) {
         if (resp.ok) {
             let data = await resp.json();
             check(data);
+            window.location.replace("/index.html");
         } else {
+            window.location.replace("/index.html");
             throw "HTTP ERROR CODE:" + resp.status;
         }
     } catch {
@@ -28,6 +28,7 @@ async function Login(userName, password) {
 }
 
 async function SignUp(username, password, name) {
+    window.location.replace("./index.html");
     try {
         const resp = await fetch(
             `http://127.0.0.1:3000/UserInfo/${username}&${password}&${name}`
@@ -43,10 +44,11 @@ async function SignUp(username, password, name) {
 }
 
 const getUserInfo = (e) => {
+    window.location.replace("./index.html");
     e.preventDefault;
-    const userName = e.target.username.value;
-    const passWord = e.target.password.value;
-    const userNickName = e.target.studentName.value;
+    const userName = e.target.Username.value;
+    const passWord = e.target.Password.value;
+    const UserNickName = e.target.StudentName.value;
 
     for (let i = 0; userName.length > i; i++) {
         if (userName[i] == " ") {
@@ -55,27 +57,23 @@ const getUserInfo = (e) => {
         if (passWord[i] == " ") {
             passWord[i] = "";
         }
-        if (userNickName[i] == " ") {
-            userNickName[i] == "";
+        if (UserNickName[i] == " ") {
+            UserNickName[i] == "";
         }
     }
 
     if (userName == "") {
-        alert("Please Enter A Username");
+        window.location.replace("./index.html");
     } else if (passWord == "") {
+        window.location.replace("./index.html");
         alert("Please Enter A password");
-    } else if (userNickName == "") {
-        alert("Please Enter A Name");
     } else {
         if (signUpOption == true) {
-            SignUp(userName, passWord, userNickName);
+            SignUp(userName, passWord, UserNickName);
         } else {
             Login(userName, passWord);
         }
     }
-
-    e.target.userName.value = "";
-    e.target.password.value = "";
 };
 
 function LoginBtn() {
@@ -92,6 +90,9 @@ function LoginBtn() {
         HeadDis.textContent = "Login";
         signUpOption = true;
     }
+    window.location.replace("./index.html");
 }
-
-LoginDis.addEventListener("submit", getUserInfo);
+function redirect(){
+    window.location.replace("./index.html");
+}
+LoginDis.addEventListener("submit", redirect);

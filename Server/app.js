@@ -5,8 +5,18 @@ const app = express();
 const port = 3000;
 const hangWords = require("./assets/hangman/guessWords.json");
 const memoryData = require("./assets/memoryGame/memoryData.json");
+const userStats = require("./assets/dataBase/userStats.json");
+const userMessages = require("./assets/dataBase/userMessages.json");
+const userDue = require("./assets/dataBase/userDue.json");
+const userSchedule = require("./assets/dataBase/userSchedule.json");
+const lectureData = require("./assets/dataBase/lectureData.json");
 // const englishLanguage = require("./HangmanInformation.json");
-// const loginDataBase = require("./assets/dataBase/loginInfo.json");
+const loginDataBase = require("./assets/dataBase/loginInfo.json");
+function filterById(jsonObject, givenID) {
+    for (let i = 0; i< jsonObject.length; i++) {
+        if(jsonObject[i].id == givenID) return jsonObject[i];
+    }
+}
 app.use(express.json());
 app.use(cors());
 
@@ -17,9 +27,44 @@ app.get("/HangWords", (req, res) => {
 app.get("/memorydata", (req, res) => {
     res.send(memoryData);
 });
-//   app.use ("/lecture",(req,res)=>{
-//     res.send(englishLanguage)
-//   })
+app.get("/userData/stats?:userID", (req, res) => {
+    let userID = req.params.userID;
+    if (!userID || userID.length == 0) return;
+    let responseData = filterById(userStats, userID);
+    if (!responseData || responseData.length == 0) return res.send(res.status(404));
+    res.send(responseData.stats);
+});
+app.get("/userData/due?:userID", (req, res) => {
+    let userID = req.params.userID;
+    if (!userID || userID.length == 0) return;
+    let responseData = filterById(userDue, userID);
+    if (!responseData || responseData.length == 0) return res.send(res.status(404));
+    res.send(responseData.due);
+});
+app.get("/userData/schedule?:userID", (req, res) => {
+    let userID = req.params.userID;
+    if (!userID || userID.length == 0) return;
+    let responseData = filterById(userSchedule, userID);
+
+    if (!responseData || responseData.length == 0) return res.send(res.status(404));
+    res.send(responseData.schedule);
+});
+app.get("/userData/messages?:userID", (req, res) => {
+    let userID = req.params.userID;
+    console.log(userID);
+    if (!userID || userID.length == 0) return res.send(res.status(404));
+    let responseData = filterById(userMessages, userID);
+    if (!responseData || responseData.length == 0) return res.send(res.status(404));
+    res.send(responseData.messages);
+});
+
+app.use("/lecture/?:lectureID", (req, res) => {
+    let lectureID = req.params.lectureID;
+    if (!lectureID || lectureID == 0) return;
+    let responseData = filterById(lectureData, lectureID);
+    if (!responseData || responseData.length == 0) return res.send(res.status(404));
+    res.send(responseData.lectureInfo);
+});
 
 const addObject = (username, password, name) => {
     const min = 1;
@@ -33,7 +78,7 @@ const addObject = (username, password, name) => {
 };
 
 app.get("/login/:username&:password", (req, res) => {
-    loginInfo.map((User) => {
+    loginDataBase.map((User) => {
         if (
             User.username == req.params.username &&
             User.password == req.params.password

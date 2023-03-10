@@ -1,74 +1,31 @@
 // This is the URL of the JSON file that contains the messages
 const url = "https://example.com/messages.json";
-function fetch() {
-    const data = [
-        {
-            messages: [
-                {
-                    text: "Hello, this is the first message.",
-                },
-                {
-                    text: "Hi, this is the second message.",
-                },
-                {
-                    text: "Hey, this is the third message.",
-                },
-                {
-                    text: "Hey, this is the hird message.",
-                },
-                {
-                    text: "Hey, this is the tird message.",
-                },
-                {
-                    text: "Hey, this is the thrd message.",
-                },
-                {
-                    text: "Hey, this is the third messge.",
-                },
-                {
-                    text: "Hey, this is the third mesage.",
-                },
-                {
-                    text: "Hey, this is the third mesage.",
-                },
-                {
-                    text: "Hey, this is the third mesage.",
-                },
-                {
-                    text: "Hey, this is the third messge.",
-                },
-                {
-                    text: "Hey, this is the third mesage.",
-                },
-                {
-                    text: "Hey, this is the third mesage.",
-                },
-                {
-                    text: "Hey, this is the third messge.",
-                },
-                {
-                    text: "Hey, this is the third messge.",
-                },
-                {
-                    text: "Hey, this is the third mesage.",
-                },
-            ],
-        },
-    ];
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(data);
-        }, 2000);
-    });
+let userID = 2;
+async function fetchStats(userID) {
+    const statsBox = document.getElementById("user-stats");
+    fetch(`http:127.0.0.1:3000/userData/messages${userID}`)
+        .then((data) => {
+            for (let stat of data[0].stats) {
+                let statName = document.createElement("p");
+                statName.textContent = stat.name;
+                statsBox.appendChild(statName);
+                let statResult = document.createElement("p");
+                statResult.textContent = stat.percent;
+                statsBox.appendChild(statResult)
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 }
 async function fetchAndDisplayMessages(elementID, dataURL) {
     const messageBox = document.getElementById(elementID);
-    fetch(dataURL)
-        // .then((response) => response.json()) // This converts the response to a JSON object
+    fetch(`http://127.0.0.1:3000/userData/messages${userID}`)
+        .then((response)=>response.json())
         .then((data) => {
-            for (let message of data[0].messages) {
+            for (let i = 0; i < data.length; i++) {
                 let p = document.createElement("p");
-                p.textContent = message.text;
+                p.textContent = data[i].text;
                 messageBox.appendChild(p);
             }
         })
@@ -79,3 +36,4 @@ async function fetchAndDisplayMessages(elementID, dataURL) {
 
 // This calls the function when the web page is loaded
 window.onload = fetchAndDisplayMessages("due-box");
+window.onload = fetchAndDisplayMessages("due-box1");

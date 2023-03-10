@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "schedule": [
+            {
+                "name": "Maths",
+                "start": "9:00",
+                "end": "10:00",
+                "column": 1
+            },
+            {
+                "name": "Arts",
+                "start": "12:00",
+                "end": "13:00",
+                "column": 2
+            },
+            {
+                "name": "Arts Workshop",
+                "start": "14:00",
+                "end": "16:00",
+                "column": 3
+            }
+        ]
+    }
+]

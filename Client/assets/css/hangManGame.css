@@ -1,34 +1,55 @@
-#Menu {
-    background-color: yellow;
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Kanit:wght@300;400&display=swap");
+* {
+    margin: 0;
 }
-
-.hangman h1 {
-    font-size: 25px;
-    color: yellow;
+#hangManGame {
+    background-image: url("../images/3485268.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#Menu {
+    font-family: "Tilt Warp", cursive;
+    position: relative;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    background-color: rgba(127, 235, 210, 0.8);
+    box-shadow: 8px 8px #333333;
+    margin-bottom:50px;
 }
 
 #Display-Hangman {
+    box-shadow: 10px 10px #333333;
+    position: relative;
     display: flex;
-    margin-left: 5vw;
-    margin-top: 5vh;
-    background-color: blue;
-    justify-content: flex-end;
+    height: 50vh;
+    width: 60vw;
+    border-radius: 50px;
+    background-color: rgba(127, 235, 210, 0.8);
+    justify-content: center;
+    align-items: center;
     flex-direction: column-reverse;
 }
 
 #Interaction form {
+    box-shadow: 7px 7px #333333;
     display: flex;
+    border-radius: 50px;
     flex-direction: row-reverse;
-    background-color: red;
+    background-color: rgba(127, 235, 210, 0.8);
     margin-top: 5vh;
     margin-left: 10vw;
-    justify-content: flex-start;
+    width: 80vw;
+    height: 10vh;
+    justify-content: space-around;
     align-items: center;
 }
 
 #Interaction input:nth-child(2) {
     text-align: center;
-    width: 30%;
+    width: 35%;
     height: 20%;
 }
 
@@ -38,19 +59,82 @@
     height: 60%;
     margin-right: 2vw;
 }
-.list {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    list-style-type: none;
-}
-
-.list li {
-    font-size: 25px;
-}
-
 #LoginDis {
     background-color: yellow;
     width: 100vw;
     height: 70vh;
+}
+#MainDis {
+    position: relative;
+    display: flex;
+    top:5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#LettersLefts {
+    box-shadow: 5px 5px #333333;
+    font-family: "Tilt Warp", cursive;
+    border-radius: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    background-color: rgba(127, 235, 210, 0.8);
+    width: 80%;
+    height: 10%;
+}
+#LettersLefts > h1 {
+    color: black;
+}
+
+#DescribeDis {
+    box-shadow: 5px 5px #333333;
+    position: absolute;
+    top: 35%;
+    font-family: "Tilt Warp", cursive;
+    width: 50%;
+    height: 5%;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #abebd2;
+}
+
+#UsedLettersDis {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    border-radius: 50px;
+    background-color: rgba(127, 235, 210, 0.8);
+    width: 25%;
+    height: 30%;
+    bottom: 15%;
+    box-shadow: 5px 5px #333333;
+}
+#LettersUsed {
+    font-size: 120%;
+    font-family: "Tilt Warp", cursive;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.btn {
+    font-family: "Tilt Warp", cursive;
+    border-radius: 50px;
+    background-color: #abebd2;
+}
+.btn:hover {
+    transition: 1s ease-in-out;
+    box-shadow: 5px 5px white;
+    background-color: #333333;
+}
+
+#letter {
+    font-family: "Tilt Warp", cursive;
+    border-radius: 50px;
+    background-color: #abebd2;
 }
