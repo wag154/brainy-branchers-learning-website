@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="assets/css/homepage.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+    </head>
+    <body>
+        <section id="navigation">
+            <div class="navbar">
+                <div class="dropdown-left">
+                    <!--stuff now display on click-->
+                    <button id = "buttonRes" class="dropbtn-left" onclick="DisplaySchedule()">
+                        <strong>
+                            Quick Links
+                        </strong>
+                        <i id = "DisArrow"class="fa fa-caret-down"></i>
+                    </button>
+
+                    <div id="games" class="dropdown-content">
+
+                        <!--Hidden stuff options-->
+                        <a class = "linkHover" href="/Client/lecture.html">Lecture</a>
+                        <a class = "linkHover" href="">Contact</a>
+                        <div id="user-stats">
+                            <h1>Statics</h1>
+                            <p>HangMan - Win: 0, Loss:0</p>
+                            <p>MemoryGame - Points Average: 0pts</p>
+                            <p>Song Game - Win:0, Loss: 0</p>
+                        </div>
+                    </div>
+                </div>
+                <a id="logo"href="index.html"><img src="assets/images/stock-logo.png" alt="schoolName"
+                    /></a>
+                <div class="dropdown">
+                    <img
+                        id="student-picture"
+                        src="https://st3.depositphotos.com/9998432/13335/v/450/depositphotos_133352088-stock-illustration-default-placeholder-profile-icon.jpg"
+                        alt="Avatar"
+                    />
+                    <button class="dropbtn" onclick="DisplayLoginOptions()">
+                        <strong>
+                        test
+                            </strong>
+                        <i id = "studentArrow" class="fa fa-caret-down"></i>
+                    </button>
+
+                    <div class = "LoginChoice">
+                        <a href = "signUp.html">Log out</a>
+                    </div>
+        </section>
+
+        <section id="welcome">
+            <div class="content">
+                <div class="main-section">
+                    <h1>Welcome</h1>
+                    <h2>to</h2>
+                    <h3>Test School</h3>
+                </div>
+                <div class="secondary-section">
+                    <p>Lectures</p>
+                    <div class="lecture-container">
+                        <div class="lecture-box">
+                            <a href ="lecture.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="lecture1"
+                            /></a>
+                        </div>
+                        <div class="lecture-box">
+                            <a href ="lecture.html"><img
+                                src="https://source.unsplash.com/random/200x200?song"
+                                alt="lecture2"
+                            /></a>
+                        </div>
+                        <div class="lecture-box">
+                            <a href ="lecture.html"><img
+                                src="https://source.unsplash.com/random/200x200?hangman"
+                                alt="lecture3"
+                            /></a>
+                        </div>
+                        <div class="button" onclick=`toggleList("#lectureList")`>Show list</div>
+                    </div>
+                    <ul id="lectureList" class="list">
+                        <li><a href="https://www.google.com">Google</a></li>
+                        <li><a href="https://www.bing.com">Bing</a></li>
+                        <li><a href="https://www.duckduckgo.com">DuckDuckGo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="secondary-section">
+                    <p>Practice games</p>
+                    <div class="lecture-container">
+                        <div class="lecture-box">
+                            <a href ="./games/hangman.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="game1"
+                            /></a>
+                        </div>
+                        <div class="lecture-box">
+                            <a href ="Client/games/memory/ForeignLang-Memory.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="game2"
+                            /></a>
+                        </div>
+                        <div class="lecture-box">
+                            <a href ="./games/songGame.html"><img
+                                src="https://source.unsplash.com/random/200x200?book"
+                                alt="game3"
+                            /></a>
+                        </div>
+                        <div class="button" onclick="toggleList()">Show list</div>
+                    </div>
+                </div>
+                <i class="fas fa-arrow-down" onclick="scrollToOther()"></i>
+            </div>
+        </section>
+        <section id="student-box">
+            <div class="schedule-box">
+                <div class="schedule">
+                    <div class="timeline">
+                        <div>7:00</div>
+                        <div>8:00</div>
+                        <div>9:00</div>
+                        <div>10:00</div>
+                        <div>11:00</div>
+                        <div>12:00</div>
+                        <div>13:00</div>
+                        <div>14:00</div>
+                        <div>15:00</div>
+                        <div>16:00</div>
+                        <div>17:00</div>
+                        <div>18:00</div>
+                        <div>19:00</div>
+                        <div>20:00</div>
+                    </div>
+                    <div class="events">
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                    </div>
+                </div>
+                <div class="message-section">
+                    <p class="top-of-box">Your New Messages</p>
+                    <div id="due-box"class="due-box">
+                       
+                    </div>
+                    <p class="top-of-box">Your Due Tasks</p>
+                    <div id="due-box1"class="due-box">
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </section>
+        <script src="assets/js/homePage.js"></script>
+        <script src="assets/js/scheduler.js"></script>
+        <script src="assets/js/dataFetch.js"></script>
+    </body>
+</html>

@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+}
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap");
+#nameThatSong {
+    background-image: url("../images/3425171.jpg");
+    background-size: cover;
+}
+
+#header {
+    box-shadow: 5px 5px #333333;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 5vh;
+    justify-content: space-around;
+    background-color: #abebd2;
+    opacity: 0.9;
+    align-items: center;
+    font-family: "Tilt Warp", cursive;
+    margin-bottom:50px;
+}
+#DisplayBody {
+    font-family: "Tilt Warp", cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#DisplayMusic {
+    box-shadow: 5px 5px #333333;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 50px;
+    width: 40vw;
+    height: 45vh;
+    background-color: rgba(171, 235, 210, 0.8);
+}
+.resultContainer {
+    font-family: "Tilt Warp", cursive;
+    position: absolute;
+    top: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    border-radius: 50px;
+    height: 10%;
+    background-color: rgba(171, 235, 210, 0.8);
+}
+
+#startOverBtn {
+    font-family: "Tilt Warp", cursive;
+    position: absolute;
+    bottom: 12%;
+    left: 5%;
+}
+#playPauseBtn {
+    font-family: "Tilt Warp", cursive;
+    position: absolute;
+    bottom: 12%;
+}
+
+#CheckBtn {
+    font-family: "Tilt Warp", cursive;
+    position: absolute;
+    bottom: 12%;
+    right: 5%;
+}
+.btn {
+    border-radius: 50px;
+    font-family: "Tilt Warp", cursive;
+    background-color: #abebd2;
+    width: 20%;
+    height: 20%;
+}
+.btn:hover {
+    transition: 1s;
+    background-color: #333333;
+    box-shadow: 5px 5px white;
+}
+#answer {
+    font-family: "Tilt Warp", cursive;
+    position: absolute;
+    border-radius: 50px;
+    text-align: center;
+    width: 40%;
+    height: 5%;
+}
+
+#answer:focus {
+    font-size: 25px;
+    transition: all 1s ease-in-out;
+    top: 45%;
+    width: 60%;
+    height: 7%;
+    box-shadow: 3px 3px black;
+}
+
+#returnBtn {
+    font-family: "Tilt Warp", cursive;
+    position: absolute;
+    bottom: 2vh;
+    right: 10vw;
+    height: 10vh;
+    width: 10vw;
+    border-radius: 50px;
+    background-color: #abebd2;
+    opacity: 0.85;
+}
+
+#returnBtn:hover {
+    transition: 1s ease-in-out;
+    background-color: #333333;
+    box-shadow: 5px 5px white;
+}

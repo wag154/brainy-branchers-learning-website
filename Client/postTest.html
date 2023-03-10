@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <script>
+            // Function to create input fields dynamically
+            function createFields() {
+                // Get the number of fields from the input
+                let num = document.getElementById("num").value;
+                // Clear the previous fields
+                document.getElementById("fields").innerHTML = "";
+                let divQuestion = document.createElement("div");
+                let labelQuestion = document.createElement("label");
+                labelQuestion.textContent = "Question:";
+                let inputQuestion = document.createElement("input");
+                inputQuestion.type = "text";
+                inputQuestion.name = "question";
+                inputQuestion.placeholder = "Enter question prompt";
+                divQuestion.appendChild(labelQuestion);
+                divQuestion.appendChild(inputQuestion);
+                document.getElementById("fields").appendChild(divQuestion);
+                for (let i = 0; i < num; i++) {
+                    // Create a div element to hold the input and label
+                    let div = document.createElement("div");
+                    // Create a label element with the field name
+                    let label = document.createElement("label");
+                    label.textContent = "Answer " + (i + 1) + ": ";
+                    // Create an input element with the field name
+                    let inputAnswer = document.createElement("input");
+                    inputAnswer.type = "text";
+                    inputAnswer.name = "answer" + (i + 1);
+                    inputAnswer.placeholder = "Enter answer";
+                    // Create an input element with the field value
+                    let inputCorrect = document.createElement("input");
+                    inputCorrect.type = "text";
+                    inputCorrect.name = "correct" + (i + 1);
+                    inputCorrect.placeholder = "Is answer correct?";
+
+                    // Append the label and input to the div
+                    div.appendChild(label);
+                    div.appendChild(inputAnswer);
+                    div.appendChild(inputCorrect);
+                    // Append the div to the fields container
+                    document.getElementById("fields").appendChild(div);
+                }
+            }
+
+            function sendJSON() {
+                let formData = new FormData(
+                    document.getElementById("quiz-question")
+                );
+                let jsonArray = [];
+                formData.forEach(function (value, key) {
+                    let jsonObject = {};
+                    if(key.includes("answer")){
+                        jsonObject[key] = value;
+                    }
+                    
+                    jsonArray.push(jsonObject);
+                });
+                let json = JSON.stringify(Object.fromEntries(jsonArray));
+                fetch("http://127.0.0.1:3000/save", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: json,
+                })
+                    // Handle the response from the server
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // Display the response data in the console
+                        console.log(data);
+                    })
+                    .catch((error) => {
+                        // Display the error in the console
+                        console.error(error);
+                    });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>input fields</h1>
+        <form id="quizz-question">
+            <label>Question Prompt:</label>
+            <input
+                id="question"
+                type="text"
+                placeholder="Enter question prompt"
+            />
+            <label>Enter the number of answer fields:</label>
+            <input id="num" type="number" onchange="createFields()" />
+            <div id="fields"></div>
+            <button type="button" onclick="sendJSON()">Send JSON</button>
+        </form>
+    </body>
+</html>

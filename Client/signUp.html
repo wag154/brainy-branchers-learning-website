@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet" href = "assets/css/signUp.css">
+  <title>Document</title>
+</head>
+<body>
+
+<section id = "background">
+  <section id = "HeadToolBar">
+    <h1 id = "Displayer">Sign Up?</h1>
+  </section>
+  
+  <section id = "LoginMain">
+
+    <div id = "LoginDis">
+      <form>
+        <label for = "Username"><strong>Username:</strong></label>
+        <input class = "Input" type = "text" name = "Username">
+        <br><br>
+        <label for = "StudentName" id = "NameLabel"><strong>Name :</strong></label>
+        <input class ="Input" name = "StudentName" type="text" id = "NameInput">
+        <br><br>
+        <label for = "Password"><strong>Password:</strong></label>
+        <input class = "Input" type = "password" name = "Password">
+        <br><br>
+        <input id = "submitBtn" type="button" value = "submit" onclick="redir()">
+      </form>
+      <button id ="LoginBtn" onclick="redir()">Login?</button>
+    </div>
+    
+    
+    <!--
+        Below is return button
+    -->
+    <a href="#"><button id ="ReturnBtn" onclick="redir()">Return To Menu</button></a>
+  </section>
+</section>
+<script>
+  function redir() {
+    setTimeout(function(){
+      window.location.href = "./index.html";
+    },750)
+  }
+  </script>
+  <script src = "assets/js/signUp.js"></script>  
+</body>
+</html>

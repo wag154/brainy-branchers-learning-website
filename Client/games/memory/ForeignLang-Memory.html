@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foreign Languages - Memory Game</title>
+    <script src="./ForeignLang-Memory.js" defer></script>
+    <link rel="stylesheet" href="./ForeignLang-Memory.css">
+</head>
+<body>
+    <div class="pageBanner">
+    <h1>Test Your Memory in Foreign Languages</h1>
+    </div>
+    <div class="pageContent">
+    <div class="contentMemorise">
+    <h2>Memorise the Sentences and Write what you See</h2>
+    </div>
+    <h3 id="countdownTagHeader">countdown</h3>
+    <h3 id="countdownTagNumber">5</h3>
+    <h2 id="memoryTag">
+    </h2>
+    <section id="inputMemory">
+        <form>
+            <div class="formDiv">
+            <label id="formLabel">Repeat what you say in English</label>
+            </div>
+            <div class="formDiv">
+            <input type="text" id="memoryTypeText", placeholder="Your Sentence">
+            </div>
+            <div class="formDiv">
+            <input type="submit" value="submit" id="submitButton">
+            </div>
+        </form>
+    </section>
+    <section id="examAnswerSection">
+        <h3>What was in Spanish</h3>
+        <p id="spaText"></p>
+        <h3>English Translation</h3>
+        <p id="engText"></p>
+        <h3>What you wrote</h3>
+        <p id="userText"></p>
+        
+        <div id="correctIncorrect">
+        <div id="correct">
+        <h2>Keywords you got correct</h3>
+        <ol id="correctList"></ol>
+        </div>
+        <div id="incorrect">
+        <h2>Words you got incorrect</h3>
+        <ol id="incorrectList"></ol>
+        </div>
+        </div>
+        <h2 id="pointTag"></h2>
+    </section>
+    </div>
+</body>
+</html>
